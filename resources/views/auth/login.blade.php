@@ -34,7 +34,7 @@
     
                     <div class="card-header text-white" style="background-color: rgb(41, 41, 49);">{{ __('Inicio de sesión') }}</div>
     
-                    <div class="card-body" style="background-color: rgb(51,51,61);">
+                    <div class="card-body" style="background-color: rgb(77, 77, 80);">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
     
