@@ -38,13 +38,7 @@
 						</li>
 					@endif
 				</li>
-				<li>
-					@if (Route::has('register'))
-						<li class="nav-item">
-							<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-						</li>
-					@endif
-				</li>
+			
 			</ul>
 			
 			
@@ -116,6 +110,13 @@
 
 					<li class="nav-item active">
 						<a class="nav-link" href="/">Reportes</a>
+					</li>
+					<li>
+						@if (Route::has('register'))
+							<li class="nav-item">
+								<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+							</li>
+						@endif
 					</li>
 					
 				@endif
