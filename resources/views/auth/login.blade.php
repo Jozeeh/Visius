@@ -4,7 +4,7 @@
 
 <style>
     body{
-        background-color: rgb(217,217,217);
+        background-color: rgb(248,250,252);
     }
     
 </style>
@@ -20,7 +20,7 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Correo:') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end mt-4">{{ __('Correo:') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Contraseña') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end mt-4">{{ __('Contraseña:') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -61,7 +61,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary text-white">
+                                <button type="submit" class="btn text-white" style="background-color: rgb(32,183,128);">
                                     {{ __('Iniciar sesion') }}
                                 </button>
 

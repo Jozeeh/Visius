@@ -226,7 +226,7 @@
 	<!-- Content page-->
 	<section class="full-box dashboard-contentPage">
 		<!-- NavBar -->
-		<nav class="full-box dashboard-Navbar">
+		<nav class="full-box dashboard-Navbar" style="background-color: rgb(41,41,49);">
 			<ul class="full-box list-unstyled text-right">
 				<li class="pull-left">
 					<a href="#!" class="btn-menu-dashboard"><i class="zmdi zmdi-more-vert"></i></a>
