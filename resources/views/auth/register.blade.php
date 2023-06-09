@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+<!--Definiendo titulos-->
+@section('title', 'Registrar usuario')
+
 @section('content')
 
 <div class="container">
