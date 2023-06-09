@@ -79,11 +79,11 @@
 			
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
-				<li>
+				{{-- <li>
 					<a href="home.html">
 						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> Menu
 					</a>
-				</li>
+				</li> --}}
 				{{-- Si el usuario inicio sesión como supervisor tendrá los siguientes elementos en la busqueda --}}
 				{{-- 
 				1 = Administrador
