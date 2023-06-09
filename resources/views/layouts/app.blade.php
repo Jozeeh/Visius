@@ -19,6 +19,12 @@
 
 	 <!-- Scripts -->
 	 @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+	 <style>
+		body{
+			background-color: rgb(248,250,252);
+		}
+	 </style>
 </head>
 <body>
 	<!-- SideBar -->
@@ -243,6 +249,18 @@
 		@yield('content')
 			
 		</div>
+
+		{{-- FOOTER --}}
+		<div class="container mt-5" style="background-color: rgb(41,41,49);">
+			<footer class="py-3 my-1">
+				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
+				  <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Facebook</a></li>
+				  <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Twitter</a></li>
+				  <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Instagram</a></li>
+				</ul>
+				<p class="text-center text-white">© 2022 Visius Company, Inc</p>
+			</footer>
+		</div>
 		
 	</section>
 	</section>
@@ -266,6 +284,7 @@
 		    </div>
 	  	</div>
 	</div>
+
 	<!--====== Scripts -->
 	<script src="{{asset('js/jquery-3.1.1.min.js')}}"></script>
 	<script src="./js/sweetalert2.min.js"></script>
