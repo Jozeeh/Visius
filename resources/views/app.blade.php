@@ -74,6 +74,9 @@
 
         
         {{-- Comentario que no he subido pc principal --}}
+        
+        {{--Cambio desde pc 2--}}
+
         <main class="py-4 container">
             @yield('content')
         </main>
