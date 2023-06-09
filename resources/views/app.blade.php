@@ -72,23 +72,6 @@
             </div>
         </nav>
 
-        {{--probanding--}}
-        {{--probanding 2--}}
-        {{--probanding 3--}}
-        {{--probanding 4--}}
-
-        asdasdasdas
-        probandoo
-        probandoo2
-        probandoo3
-        Probando4
-
-
-
-
-
-        asdasdsa
-
         {{--Cambio desde pc 2--}}
         {{-- Comentario que no he subido pc principal --}}
         {{--Test cambio--}}
