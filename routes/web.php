@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RolesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,4 @@ Route::get('/administrador/userShow', function () {
     return view('/administrador/userShow');     //Mostrar usuarios registrados
 });
 
-Route::get('/administrador/userCreate', function () {
-    return view('/administrador/userCreate');   //Crear usuarios nuevos
-});
+Route::get('/administrador/userCreate', [RolesController::class, 'index']);

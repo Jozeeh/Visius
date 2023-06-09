@@ -62,14 +62,15 @@
                         </div>
 
                         <div class="row mb-3">
-                            <select name="" id="">
-
-                            </select>
+                            
                             <label for="userRol" class="col-md-4 col-form-label text-md-end">{{ __('UserRol') }}</label>
 
                             <div class="col-md-6">
-                                <input id="userRol" type="text" class="form-control @error('userRol') is-invalid @enderror" name="userRol" value="{{ old('userRol') }}" required autocomplete="userRol" autofocus>
-
+                                <select id="userRol" class="form-control @error('userRol') is-invalid @enderror" name="userRol" value="{{ old('userRol') }}" required>
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Supervisor</option>
+                                    <option value="3">Empleado</option>
+                                </select>
                                 @error('userRol')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

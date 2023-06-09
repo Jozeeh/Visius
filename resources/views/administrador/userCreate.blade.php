@@ -43,9 +43,12 @@
                 <div class="col-6">
                     Rol del usuario:
                     <select class="form-control"name="rol" id="">
-                        <option value="1">Administrador</option>
-                        <option value="2">Supervisor</option>
-                        <option value="3">Empleado</option>
+                        @foreach ($roles as $item)
+                        <option value="{{$item->rolCodigo}}">
+                            {{$item->rolNombre}}
+                        </option>
+                        @endforeach
+                        
                     </select>
                 </div>
             </div>

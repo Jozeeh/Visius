@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Roles;
 use Illuminate\Http\Request;
 
 class RolesController extends Controller
@@ -13,17 +14,12 @@ class RolesController extends Controller
      */
     public function index()
     {
-        $productos = Products::select(
-            "productos.codigo",
-            "productos.nombre",
-            "productos.precio",
-            "marcas.nombre as marca"
-        )->join("marcas", "marcas.codigo", "=", "productos.marca")->get();
+        $roles = Roles::all();
 
         //dd($productos);
 
         //Mostrar vista show.blade.php junto al listado de productos
-        return view('/products/show')->with(['productos'=>$productos]);
+        return view('/administrador/userCreate')->with(['roles'=>$roles]);
     }
 
     /**
