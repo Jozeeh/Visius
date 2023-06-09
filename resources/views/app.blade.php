@@ -73,7 +73,9 @@
         </nav>
 
         {{--probanding--}}
+
         {{--Cambio desde pc 2--}}
+        {{-- Comentario que no he subido pc principal --}}
 
         <main class="py-4 container">
             @yield('content')
