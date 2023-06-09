@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-	<title>Inicio</title>
+	<title>@yield('title')</title>
 	<meta charset="UTF-8">
 
 	<!-- CSRF Token -->
@@ -93,7 +93,11 @@
 				{{-- Administador --}}
 				@if (Auth::user()->userRol == 1)
 					<li class="nav-item active">
-						<a class="nav-link" href="/">Gestión de empleados</a>
+						<a class="nav-link" href="/administrador/empShow">Gestión de empleados</a>
+					</li>
+
+					<li class="nav-item active">
+						<a class="nav-link" href="/administrador/userShow">Gestión de usuarios</a>
 					</li>
 
 					<li class="nav-item active">
@@ -102,10 +106,6 @@
 
 					<li class="nav-item active">
 						<a class="nav-link" href="/">Estado de tareas</a>
-					</li>
-
-					<li class="nav-item active">
-						<a class="nav-link" href="/registro_usuarios">Crear usuarios</a>
 					</li>
 
 					<li class="nav-item active">
