@@ -251,7 +251,7 @@
 		</div>
 
 		{{-- FOOTER --}}
-		<div class="container mt-5" style="background-color: rgb(41,41,49);">
+		<div class="container-fluid mt-5" style="background-color: rgb(41,41,49);">
 			<footer class="py-3 my-1">
 				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
 				  <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Facebook</a></li>
