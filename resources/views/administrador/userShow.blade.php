@@ -12,12 +12,12 @@
 
 <!--Definiendo contenido de la pagina-->
 @section('content')
-    <div class="container">
+    <div class="container text-center">
         <br>
         <h1><b>Usuarios registrados</b></h1>
         <hr>
         {{--Boton para ir a formulario de agregar empleados--}}
-        <a class="btn btn-success" href="/administrador/userCreate">Registrar nuevo usuario</a>
+        <a class="btn btn-success text-white" href="/register">Registrar nuevo usuario</a>
         <table class="table table-hover table-bordered mt-2" id="">
             <thead>
             <tr>
