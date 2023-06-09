@@ -15,6 +15,7 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+//Ruta pantalla de inicio
 Route::get('/home', function () {
     return view('layouts/app');
 });
@@ -24,6 +25,15 @@ Route::get('/registro_usuarios', function () {
     return view('gestion_usuarios/registrosUsuarios');
 });
 
+//Rutas para loging
 Auth::routes();
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Rutas para supervisor
+Route::get('/supervisor/empShow', function () {
+    return view('/supervisor/empShow');
+});
+
+Route::get('/supervisor/empCreate', function () {
+    return view('/supervisor/empCreate');
+});

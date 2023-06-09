@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-	<title>Inicio</title>
+	<title>@yield('title')</title>
 	<meta charset="UTF-8">
 
 	<!-- CSRF Token -->
@@ -123,7 +123,7 @@
 				{{-- Supervisor --}}
 				@if (Auth::user()->userRol == 2)
 					<li class="nav-item active">
-						<a class="nav-link" href="/">Gestión de empleados</a>
+						<a class="nav-link" href="/supervisor/empShow">Gestión de empleados</a>
 					</li>
 
 					<li class="nav-item active">
