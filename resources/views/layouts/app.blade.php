@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+	<title>Inicio</title>
+	<meta charset="UTF-8">
+
+	<!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+	<!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="{{asset('css/main.css')}}">
+
+	 <!-- Scripts -->
+	 @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+</head>
+<body>
+	<!-- SideBar -->
+	<div id="app">
+	<section class="full-box cover dashboard-sideBar">
+		<div class="full-box dashboard-sideBar-bg btn-menu-dashboard"></div>
+		<div class="full-box dashboard-sideBar-ct">
+			<!--SideBar Title -->
+			<div class="full-box text-uppercase text-center text-titles dashboard-sideBar-title">
+				company <i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
+			</div>
+			<!-- SideBar User info -->
+			@guest
+
+			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
+				<li>
+					@if (Route::has('login'))
+						<li class="nav-item">
+							<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+						</li>
+					@endif
+				</li>
+				<li>
+					@if (Route::has('register'))
+						<li class="nav-item">
+							<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+						</li>
+					@endif
+				</li>
+			</ul>
+			
+			
+
+		
+
+		@else
+
+			<div class="full-box dashboard-sideBar-UserInfo">
+
+				<figure class="full-box">
+					<img src="./assets/img/avatar.png" alt="UserIcon">
+					<figcaption class="text-center text-titles">{{ Auth::user()->name }}</figcaption>
+					<figcaption class="text-center text-titles">{{ Auth::user()->userRol }}</figcaption>
+				</figure>
+				<ul class="full-box list-unstyled text-center">
+					{{-- <li>
+						<a href="#!">
+							<i class="zmdi zmdi-settings"></i>
+						</a>
+					</li> --}}
+					<li>
+						
+							<a class="dropdown-item zmdi zmdi-power" href="{{ route('logout') }}"
+							   onclick="event.preventDefault();
+											 document.getElementById('logout-form').submit();">
+								{{ __('Logout') }}
+							</a>
+
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+								@csrf
+							</form>
+						
+					</li>
+				</ul>
+			</div>
+
+			
+			<!-- SideBar Menu -->
+			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
+				<li>
+					<a href="home.html">
+						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> Menu
+					</a>
+				</li>
+				{{-- Si el usuario inicio sesión como supervisor tendrá los siguientes elementos en la busqueda --}}
+				{{-- 
+				1 = Administrador
+				2 = Supervisor
+				3 = Empleados --}}
+
+				{{-- Administador --}}
+				@if (Auth::user()->userRol == 1)
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Gestión de empleados</a>
+					</li>
+
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Creación de tareas</a>
+					</li>
+
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Estado de tareas</a>
+					</li>
+
+					<li class="nav-item active">
+						<a class="nav-link" href="/registro_usuarios">Crear usuarios</a>
+					</li>
+
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Reportes</a>
+					</li>
+					
+				@endif
+				{{-- Supervisor --}}
+				@if (Auth::user()->userRol == 2)
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Gestión de empleados</a>
+					</li>
+
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Asignación de tareas</a>
+					</li>
+
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Estado de tareas</a>
+					</li>
+
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Reportes</a>
+					</li>
+				@endif
+				{{-- Si no es administrador o supervisor será empleado --}}
+				@if (Auth::user()->userRol == 3)
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Tareas asignadas</a>
+					</li>
+					
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Reporte de tareas</a>
+					</li>
+
+					<li class="nav-item active">
+						<a class="nav-link" href="/">Estado de tareas</a>
+					</li>
+				@endif
+
+				{{-- <li>
+					<a href="#!" class="btn-sideBar-SubMenu">
+						<i class="zmdi zmdi-case zmdi-hc-fw"></i> Administration <i class="zmdi zmdi-caret-down pull-right"></i>
+					</a>
+					<ul class="list-unstyled full-box">
+						<li>
+							<a href="period.html"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Period</a>
+						</li>
+						<li>
+							<a href="subject.html"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Subject</a>
+						</li>
+						<li>
+							<a href="section.html"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> Section</a>
+						</li>
+						<li>
+							<a href="salon.html"><i class="zmdi zmdi-font zmdi-hc-fw"></i> Salon</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#!" class="btn-sideBar-SubMenu">
+						<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Users <i class="zmdi zmdi-caret-down pull-right"></i>
+					</a>
+					<ul class="list-unstyled full-box">
+						<li> 
+							<a href="admin.html"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Admin</a>
+						</li>
+						<li>
+							<a href="teacher.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Teacher</a>
+						</li>
+						<li>
+							<a href="student.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i> Student</a>
+						</li>
+						<li>
+							<a href="representative.html"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Representative</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#!" class="btn-sideBar-SubMenu">
+						<i class="zmdi zmdi-card zmdi-hc-fw"></i> Payments <i class="zmdi zmdi-caret-down pull-right"></i>
+					</a>
+					<ul class="list-unstyled full-box">
+						<li>
+							<a href="registration.html"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Registration</a>
+						</li>
+						<li>
+							<a href="payments.html"><i class="zmdi zmdi-money zmdi-hc-fw"></i> Payments</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#!" class="btn-sideBar-SubMenu">
+						<i class="zmdi zmdi-shield-security zmdi-hc-fw"></i> Settings School <i class="zmdi zmdi-caret-down pull-right"></i>
+					</a>
+					<ul class="list-unstyled full-box">
+						<li>
+							<a href="school.html"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> School Data</a>
+						</li>
+					</ul>
+				</li>
+			</ul> --}}
+			
+
+			
+
+			@endguest
+		</div>
+
+	</section>
+
+	<!-- Content page-->
+	<section class="full-box dashboard-contentPage">
+		<!-- NavBar -->
+		<nav class="full-box dashboard-Navbar">
+			<ul class="full-box list-unstyled text-right">
+				<li class="pull-left">
+					<a href="#!" class="btn-menu-dashboard"><i class="zmdi zmdi-more-vert"></i></a>
+				</li>
+			</ul>
+		</nav>
+		<!-- Content page -->
+		<div class="container">
+			
+		@yield('content')
+			
+		</div>
+		
+	</section>
+	</section>
+
+	<!-- Dialog help -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="Dialog-Help">
+	  	<div class="modal-dialog" role="document">
+		    <div class="modal-content">
+			    <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			    	<h4 class="modal-title">Help</h4>
+			    </div>
+			    <div class="modal-body">
+			        <p>
+			        	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt beatae esse velit ipsa sunt incidunt aut voluptas, nihil reiciendis maiores eaque hic vitae saepe voluptatibus. Ratione veritatis a unde autem!
+			        </p>
+			    </div>
+		      	<div class="modal-footer">
+		        	<button type="button" class="btn btn-primary btn-raised" data-dismiss="modal"><i class="zmdi zmdi-thumb-up"></i> Ok</button>
+		      	</div>
+		    </div>
+	  	</div>
+	</div>
+	<!--====== Scripts -->
+	<script src="{{asset('js/jquery-3.1.1.min.js')}}"></script>
+	<script src="./js/sweetalert2.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/material.min.js"></script>
+	<script src="./js/ripples.min.js"></script>
+	<script src="./js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="./js/main.js"></script>
+	<script>
+		$.material.init();
+	</script>
+	</div>
+</body>
+</html>
