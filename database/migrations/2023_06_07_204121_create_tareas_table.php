@@ -25,9 +25,9 @@ return new class extends Migration
             //Estableciendo llave foranea con tabla areas
             $table->foreign('tarArea')->references('arCodigo')->on('areas');
             //Llave foranea
-            $table->bigInteger('tarEmpleado')->unsigned();
+            $table->bigInteger('tarEmpleado')->unsigned()->nullable();
             //Estableciendo llave foranea con tabla empleados
-            $table->foreign('tarEmpleado')->references('empCodigo')->on('empleados');
+            $table->foreign('tarEmpleado')->references('empCodigo')->on('empleados')->onDelete('set null');
             $table->timestamps();
         });
     }

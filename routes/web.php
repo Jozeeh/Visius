@@ -35,3 +35,5 @@ Route::get('/administrador/userShow', function () {
 });
 
 Route::get('/administrador/userCreate', [RolesController::class, 'index']);
+
+Route::get('/CreateTareas', [TareasController::class, 'create']);
