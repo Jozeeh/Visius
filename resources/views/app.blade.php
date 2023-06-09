@@ -73,6 +73,7 @@
         </nav>
 
         {{--Cambio José--}}
+        {{--Probando--}}
 
         <main class="py-4 container">
             @yield('content')
