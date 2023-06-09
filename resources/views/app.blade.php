@@ -72,6 +72,8 @@
             </div>
         </nav>
 
+        
+        {{-- Comentario que no he subido pc principal --}}
         <main class="py-4 container">
             @yield('content')
         </main>
