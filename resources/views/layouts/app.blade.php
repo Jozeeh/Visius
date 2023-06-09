@@ -93,7 +93,11 @@
 				{{-- Administador --}}
 				@if (Auth::user()->userRol == 1)
 					<li class="nav-item active">
-						<a class="nav-link" href="/">Gestión de empleados</a>
+						<a class="nav-link" href="/administrador/empShow">Gestión de empleados</a>
+					</li>
+
+					<li class="nav-item active">
+						<a class="nav-link" href="/administrador/userShow">Gestión de usuarios</a>
 					</li>
 
 					<li class="nav-item active">
@@ -102,10 +106,6 @@
 
 					<li class="nav-item active">
 						<a class="nav-link" href="/">Estado de tareas</a>
-					</li>
-
-					<li class="nav-item active">
-						<a class="nav-link" href="/registro_usuarios">Crear usuarios</a>
 					</li>
 
 					<li class="nav-item active">
@@ -123,7 +123,7 @@
 				{{-- Supervisor --}}
 				@if (Auth::user()->userRol == 2)
 					<li class="nav-item active">
-						<a class="nav-link" href="/supervisor/empShow">Gestión de empleados</a>
+						<a class="nav-link" href="/">Gestión de empleados</a>
 					</li>
 
 					<li class="nav-item active">

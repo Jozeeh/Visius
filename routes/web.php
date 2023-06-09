@@ -20,20 +20,19 @@ Route::get('/home', function () {
     return view('layouts/app');
 });
 
-//Ruta para crear usuarios desde administrador
-Route::get('/registro_usuarios', function () {
-    return view('gestion_usuarios/registrosUsuarios');
-});
-
 //Rutas para loging
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Rutas para supervisor
-Route::get('/supervisor/empShow', function () {
-    return view('/supervisor/empShow');
+//Rutas para administrador
+Route::get('/administrador/empShow', function () {
+    return view('/administrador/empShow');     //Mostrar empleados registrados
 });
 
-Route::get('/supervisor/empCreate', function () {
-    return view('/supervisor/empCreate');
+Route::get('/administrador/userShow', function () {
+    return view('/administrador/userShow');     //Mostrar usuarios registrados
+});
+
+Route::get('/administrador/userCreate', function () {
+    return view('/administrador/userCreate');   //Crear usuarios nuevos
 });

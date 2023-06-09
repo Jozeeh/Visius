@@ -2,13 +2,13 @@
 @extends('layouts.app')
 
 <!--Definiendo titulos-->
-@section('title', 'Nuevo empleado')
+@section('title', 'Nuevo usuario')
 
 <!--Definiendo contenido de la pagina-->
 @section('content')
     <div class="container">
         <br>
-        <h1>Ingrese los datos del nuevo empleado:</h1>
+        <h1>Ingrese los datos del nuevo usuario:</h1>
         <hr>
         <form action="" method="post">
             @csrf
@@ -40,22 +40,17 @@
                         </span>
                     @enderror
                 </div>
+                <div class="col-6">
+                    Rol del usuario:
+                    <select class="form-control"name="rol" id="">
+                        <option value="1">Administrador</option>
+                        <option value="2">Supervisor</option>
+                        <option value="3">Empleado</option>
+                    </select>
+                </div>
             </div>
-            {{-- <div class="col-12">
-                Categoria
-                <select name="categoria" class="form-control">
-                    @foreach ($categorias as $item)
-                        <option value="{{$item->codigo}}">{{$item->nombre}}</option>
-                    @endforeach
-                </select>
-                @error('categoria')
-                    <span class="invalid-feedback d-block" role="alert">
-                        <strong>{{$message}}</strong>
-                    </span>
-                @enderror
-            </div> --}}
             <div class="col-12 mt-2">
-                <button class="btn btn-primary">Guardar</button>
+                <button class="btn btn-success">Guardar</button>
             </div>
         </form>
     </div>
