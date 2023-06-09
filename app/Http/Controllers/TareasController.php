@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Areas;
+use App\Models\Tareas;
 use Illuminate\Http\Request;
 
 class TareasController extends Controller
@@ -14,7 +15,8 @@ class TareasController extends Controller
      */
     public function index()
     {
-        //
+        $tareas = Tareas::all();
+        return view('/tareas/read', ['tareas'=>$tareas]);
     }
 
     /**
@@ -36,7 +38,27 @@ class TareasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'tarNombre'=>'required',
+            'tarDescripcion'=>'required',
+            'tarArea'=>'required',
+            
+        ]);
+
+        $data['tarEstado'] = 'creada';
+        $data['tarFechaAsignada'] = 'Null';
+        $data['tarFechaFinalizada'] = 'Null';
+        
+
+
+        
+
+
+        // Emviar insert
+        Tareas::create($data);
+
+        //Redireccionar
+        return redirect('/administrador/empShow');
     }
 
     /**

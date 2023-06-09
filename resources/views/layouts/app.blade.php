@@ -110,11 +110,11 @@
 					</li>
 
 					<li class="nav-item active">
-						<a class="nav-link" href="/">Creación de tareas</a>
+						<a class="nav-link" href="/CreateTareas">Creación de tareas</a>
 					</li>
 
 					<li class="nav-item active">
-						<a class="nav-link" href="/">Estado de tareas</a>
+						<a class="nav-link" href="/tareas/show">Estado de tareas</a>
 					</li>
 
 					<li class="nav-item active">
@@ -251,7 +251,7 @@
 		</div>
 
 		{{-- FOOTER --}}
-		<div class="container-fluid mt-5" style="background-color: rgb(41,41,49);">
+		<div class="container-fluid mt-5" style="background-color: rgb(41,41,49); position: sticky; bottom: 0;">
 			<footer class="py-3 my-1">
 				<ul class="nav justify-content-center border-bottom pb-3 mb-3">
 				  <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Facebook</a></li>

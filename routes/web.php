@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolesController;
+use App\Http\Controllers\TareasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,7 @@ Route::get('/administrador/userShow', function () {
 Route::get('/administrador/userCreate', [RolesController::class, 'index']);
 
 Route::get('/CreateTareas', [TareasController::class, 'create']);
+
+Route::post('/tareas/store', [TareasController::class, 'store']);
+
+Route::get('/tareas/show', [TareasController::class, 'index']);
