@@ -42,16 +42,11 @@ class TareasController extends Controller
             'tarNombre'=>'required',
             'tarDescripcion'=>'required',
             'tarArea'=>'required',
-            
         ]);
 
         $data['tarEstado'] = 'creada';
         $data['tarFechaAsignada'] = 'Null';
         $data['tarFechaFinalizada'] = 'Null';
-        
-
-
-        
 
 
         // Emviar insert

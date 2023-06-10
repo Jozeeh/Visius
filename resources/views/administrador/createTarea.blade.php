@@ -2,7 +2,7 @@
 
 @section('content')
     <center>
-        <img src="{{ asset('/css/img/logo_transparent.png') }}" alt="Logo" width="250px" class="img-fluid"><br>
+        <img src="{{ asset('/css/img/logo_transparent.png') }}" alt="Logo" width="250px" class="img-fluid mt-4"><br>
         <p>Este es el apartado para la creacion de tareas</p>
 
         <div class="container">
@@ -14,7 +14,7 @@
                         <div class="col-6">
                                 <b>Nombre de la tarea:</b>
                                 
-                                <input type="text" name="tarNombre" class="form-control" id="">
+                                <input type="text" name="tarNombre" class="form-control text-center" id="">
                                 @error('tarNombre')
                                     <span class="invalid-feedback d-block" role="alert">
                                         <strong>{{$message}}</strong>
@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-6">
                             <b>Descripción de la tarea:</b>
-                            <input type="text" name="tarDescripcion" class="form-control" id="">
+                            <input type="text" name="tarDescripcion" class="form-control text-center" id="">
                             @error('tarDescripcion')
                                 <span class="invalid-feedback d-block" role="alert">
                                     <strong>{{$message}}</strong>
