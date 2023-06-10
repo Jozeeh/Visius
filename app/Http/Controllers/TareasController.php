@@ -41,10 +41,9 @@ class TareasController extends Controller
         $data = request()->validate([
             'tarNombre'=>'required',
             'tarDescripcion'=>'required',
-            'tarArea'=>'required',
         ]);
 
-        $data['tarEstado'] = 'creada';
+        $data['tarEstado'] = 'Creada';
         $data['tarFechaAsignada'] = 'Null';
         $data['tarFechaFinalizada'] = 'Null';
 
