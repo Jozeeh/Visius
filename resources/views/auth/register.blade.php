@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-            <div class="row mb-3">
+            {{-- <div class="row mb-3">
                 
                 <label for="userRol" class="col-md-4 col-form-label text-md-end mt-4 text-dark">{{ __('Rol de usuario') }}</label>
 
@@ -83,7 +83,7 @@
                         </span>
                     @enderror
                 </div>
-            </div>
+            </div> --}}
 
             <div class="row mb-0">
                 <div class="col-md-6 offset-md-4">

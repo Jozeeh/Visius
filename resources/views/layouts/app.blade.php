@@ -59,7 +59,7 @@
 			<div class="full-box dashboard-sideBar-UserInfo">
 
 				<figure class="full-box">
-					<img src="./assets/img/avatar.png" alt="UserIcon">
+					<img src="{{asset('/assets/img/avatar.png')}}" alt="UserIcon">
 					<figcaption class="text-center text-titles">{{ Auth::user()->name }}</figcaption>
 					<figcaption class="text-center text-titles">{{ Auth::user()->userRol }}</figcaption>
 				</figure>
@@ -290,13 +290,13 @@
 	</div>
 
 	<!--====== Scripts -->
-	<script src="{{asset('js/jquery-3.1.1.min.js')}}"></script>
-	<script src="./js/sweetalert2.min.js"></script>
-	<script src="./js/bootstrap.min.js"></script>
-	<script src="./js/material.min.js"></script>
-	<script src="./js/ripples.min.js"></script>
-	<script src="./js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="./js/main.js"></script>
+	<script src="{{asset('/js/jquery-3.1.1.min.js')}}"></script>
+	<script src="{{asset('/js/sweetalert2.min.js')}}"></script>
+	<script src="{{asset('/js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('/js/material.min.js')}}"></script>
+	<script src="{{asset('/js/ripples.min.js')}}"></script>
+	<script src="{{asset('/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+	<script src="{{asset('/js/main.js')}}"></script>
 	<script>
 		$.material.init();
 	</script>
