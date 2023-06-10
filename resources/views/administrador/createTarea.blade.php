@@ -31,6 +31,8 @@
                                 </span>
                             @enderror
                         </div>
+
+                        {{-- Desactivamos área --}}
                         {{-- <div class="col-6">
                             <b>Area:</b>
                             <select class="form-control text-center"name="tarArea" id="">
