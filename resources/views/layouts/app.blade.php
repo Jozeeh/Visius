@@ -59,7 +59,7 @@
 			<div class="full-box dashboard-sideBar-UserInfo">
 
 				<figure class="full-box">
-					<img src="./assets/img/avatar.png" alt="UserIcon">
+					<img src="{{asset('/assets/img/avatar.png')}}" alt="UserIcon">
 					<figcaption class="text-center text-titles">{{ Auth::user()->name }}</figcaption>
 					<figcaption class="text-center text-titles">{{ Auth::user()->userRol }}</figcaption>
 				</figure>
