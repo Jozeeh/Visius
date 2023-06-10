@@ -27,19 +27,29 @@ Route::get('/home', function () {
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+/////////////////////////////
+//      ADMINISTRADOR      //
+/////////////////////////////
+
 //Rutas para administrador
 Route::get('/administrador/empShow', function () {
     return view('/administrador/empShow');     //Mostrar empleados registrados
 });
-
+    // [Vista de usuarios registrados]
 Route::get('/administrador/userShow', function () {
     return view('/administrador/userShow');     //Mostrar usuarios registrados
 });
 
 Route::get('/administrador/userCreate', [RolesController::class, 'index']);
 
+//////////////////////
+//      TAREAS      //
+//////////////////////
+
+    // [VISTA CREAR TAREAS]
 Route::get('/CreateTareas', [TareasController::class, 'create']);
 
+    // [RUTA CREAR TAREAS]
 Route::post('/tareas/store', [TareasController::class, 'store']);
 
 Route::get('/tareas/show', [TareasController::class, 'index']);

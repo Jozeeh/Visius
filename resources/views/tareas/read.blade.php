@@ -1,11 +1,13 @@
 @extends('layouts.app')
 @section('content')
     
+<div class="container">
     <h1>Asignacion de tareas</h1>
+    <p>Apartado para la asignación de tareas a empleados.</p>
 
-    <table class="table table-dark">
-        <thead>
-            <tr >
+    <table class="table text-center">
+        <thead class="table-dark">
+            <tr>
                 <td>Nombre de tarea</td>
                 <td>Descipción</td>
                 <td>Area</td>
@@ -13,23 +15,24 @@
                 <td>Asignar</td>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-secondary">
             @foreach ($tareas as $item)
-                @if ($item->tarEstado == 'creada')
-                <tr class="table-active">
+                @if ($item->tarEstado == 'Creada')
+                <tr>
                     <td>{{$item->tarNombre}}</td>
                     <td>{{$item->tarDescripcion}}</td>
                     <td>{{$item->tarArea}}</td>
                     <td>{{$item->tarEstado}}</td>
                     <td>
-                        <a href="/products/edit/{{$item->tarCodigo}}" class="btn btn-success btn-sm">Asignar</a>
+                        <a href="/products/edit/{{$item->tarCodigo}}" class="btn btn-success btn-sm text-white">Asignar</a>
                     </td>
                 </tr>
                 @endif
             @endforeach
-           
+        
         </tbody>
     </table>
+</div>
     
 
 @endsection

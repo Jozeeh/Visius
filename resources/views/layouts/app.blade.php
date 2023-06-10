@@ -136,6 +136,10 @@
 					</li>
 
 					<li class="nav-item active">
+						<a class="nav-link" href="/CreateTareas">Creación de tareas</a>
+					</li>
+
+					<li class="nav-item active">
 						<a class="nav-link" href="/">Asignación de tareas</a>
 					</li>
 
@@ -258,7 +262,7 @@
 				  <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Twitter</a></li>
 				  <li class="nav-item"><a href="#" class="nav-link px-2 text-white">Instagram</a></li>
 				</ul>
-				<p class="text-center text-white">© 2022 Visius Company, Inc</p>
+				<p class="text-center text-white">© 2023 Visius Company, Inc</p>
 			</footer>
 		</div>
 		
