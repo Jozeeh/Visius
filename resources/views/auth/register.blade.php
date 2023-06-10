@@ -69,7 +69,7 @@
                 
                 <label for="userRol" class="col-md-4 col-form-label text-md-end mt-4 text-dark">{{ __('Rol de usuario') }}</label>
 
-                <div class="col-md-6">
+                {{-- <div class="col-md-6">
                     <select id="userRol" class="form-control text-center @error('userRol') is-invalid @enderror" name="userRol" value="{{ old('userRol') }}" required>
                         @foreach ($roles as $item)
                             <option value="{{$item->rolCodigo}}">
@@ -82,7 +82,7 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                </div>
+                </div> --}}
             </div>
 
             <div class="row mb-0">
