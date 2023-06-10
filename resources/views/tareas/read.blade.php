@@ -3,15 +3,18 @@
     
 <div class="container">
     {{--José--}}
-    <h1>Asignacion de tareas</h1>
-    <p>Apartado para la asignación de tareas a empleados.</p>
+    <center>
+        <img src="{{ asset('/css/img/logo_transparent.png') }}" alt="Logo" width="20%" class="img-fluid">
+        <h1>Tareas a Asignar</h1>
+        <p>En este apartado puedes asignarle las tareas a realizar a un empleado</p>
+        <hr>
+    </center>
 
     <table class="table text-center">
         <thead class="table-dark">
             <tr>
                 <td>Nombre de tarea</td>
                 <td>Descipción</td>
-                <td>Area</td>
                 <td>Estado</td>
                 <td>Asignar</td>
             </tr>
@@ -20,7 +23,7 @@
             @foreach ($tareas as $item)
                 @if ($item->tarEstado == 'Creada')
                 <tr>
-                    <td>{{$item->tarNombre}}</td>
+                    <td><b>{{$item->tarNombre}}</b></td>
                     <td>{{$item->tarDescripcion}}</td>
                     {{-- <td>{{$item->tarArea}}</td> --}}
                     <td>{{$item->tarEstado}}</td>
