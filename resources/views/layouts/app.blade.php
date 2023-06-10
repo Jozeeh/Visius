@@ -4,6 +4,9 @@
 	<title>@yield('title')</title>
 	<meta charset="UTF-8">
 
+	{{-- css personalizados --}}
+	@yield('css')
+
 	<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -100,6 +103,13 @@
 				3 = Empleados --}}
 
 				{{-- Administador --}}
+
+				{{-- inicio de ibenvenida --}}
+				<li class="nav-item active">
+					<a class="nav-link" href="/">Inicio</a>
+				</li>
+
+
 				@if (Auth::user()->userRol == 1)
 					<li class="nav-item active">
 						<a class="nav-link" href="/administrador/empShow">Gestión de empleados</a>

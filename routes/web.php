@@ -20,12 +20,12 @@ use App\Http\Controllers\TareasController;
 
 //Ruta pantalla de inicio
 Route::get('/home', function () {
-    return view('layouts/app');
+    return view('inicio');
 });
 
 //Rutas para loging
 Auth::routes();
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('inicio');
 
 /////////////////////////////
 //      ADMINISTRADOR      //
