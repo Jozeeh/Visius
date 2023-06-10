@@ -70,10 +70,12 @@
                 <label for="userRol" class="col-md-4 col-form-label text-md-end mt-4 text-dark">{{ __('Rol de usuario') }}</label>
 
                 <div class="col-md-6">
-                    <select id="userRol" class="form-control @error('userRol') is-invalid @enderror" name="userRol" value="{{ old('userRol') }}" required>
-                        <option value="1">Administrador</option>
-                        <option value="2">Supervisor</option>
-                        <option value="3">Empleado</option>
+                    <select id="userRol" class="form-control text-center @error('userRol') is-invalid @enderror" name="userRol" value="{{ old('userRol') }}" required>
+                        @foreach ($roles as $item)
+                            <option value="{{$item->rolCodigo}}">
+                                {{$item->rolNombre}}
+                            </option>
+                        @endforeach
                     </select>
                     @error('userRol')
                         <span class="invalid-feedback" role="alert">

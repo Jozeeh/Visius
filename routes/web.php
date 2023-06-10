@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -42,3 +43,4 @@ Route::get('/CreateTareas', [TareasController::class, 'create']);
 Route::post('/tareas/store', [TareasController::class, 'store']);
 
 Route::get('/tareas/show', [TareasController::class, 'index']);
+
