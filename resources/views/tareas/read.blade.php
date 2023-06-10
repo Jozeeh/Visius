@@ -22,7 +22,7 @@
                 <tr>
                     <td>{{$item->tarNombre}}</td>
                     <td>{{$item->tarDescripcion}}</td>
-                    <td>{{$item->tarArea}}</td>
+                    {{-- <td>{{$item->tarArea}}</td> --}}
                     <td>{{$item->tarEstado}}</td>
                     <td>
                         <a href="/products/edit/{{$item->tarCodigo}}" class="btn btn-success btn-sm text-white">Asignar</a>

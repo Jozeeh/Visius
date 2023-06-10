@@ -2,6 +2,7 @@
 
 @section('content')
 {{--probanding 3--}}
+{{--Comentario José--}}
 
 <div class="container">
     <div class="row justify-content-center">
