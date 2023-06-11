@@ -12,32 +12,38 @@
 
 <!--Definiendo contenido de la pagina-->
 @section('content')
-    <div class="container">
-        <br>
+    <div class="container text-center">
+        <img src="{{ asset('/css/img/logo_transparent.png') }}" alt="Logo" width="20%" class="img-fluid mt-4">
         <h1><b>Empleados registrados</b></h1>
         <hr>
         {{-- Tabla para mostrar empleados registrados --}}
-        <table class="table table-hover table-bordered mt-2" id="">
-            <thead>
+        <table class="table text-center table-hover table-bordered mt-2" id="">
+            <thead class="table-dark">
             <tr>
-                <td>Codigo</td>
+                <td>Codigo Empleado</td>
                 <td>Nombre</td>
                 <td>Correo electronico</td>
                 <td>Área asignada</td>
-                <td>Supervisor asignado</td>
+                <td>Código Usuario</td>
+                {{-- <td>Supervisor asignado</td> --}}
+                <td>Gestionar</td>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-secondary">
             {{-- Empleados registrados --}}
-            {{-- @foreach ($collection as $item)
+            @foreach ($empleados as $item)
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{$item->empCodigo}}</td>
+                    <td>{{$item->empName}}</td>
+                    <td>{{$item->empEmail}}</td>
+                    <td>{{$item->empArea}}</td>
+                    <td>{{$item->empUser}}</td>
+                    {{-- <td>{{$item->empSupervisor}}</td> --}}
+                    <td>
+                        <a href="/edit/asignar-area/{{$item->empCodigo}}" class="btn btn-success btn-sm text-white">Asignar area</a>
+                    </td>
                 </tr>
-            @endforeach --}}
+            @endforeach
         </tbody>
         </table>
     </div>

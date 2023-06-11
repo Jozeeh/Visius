@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Areas;
 use App\Models\Tareas;
+use App\Models\Empleados;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class TareasController extends Controller
 {
@@ -26,8 +29,8 @@ class TareasController extends Controller
      */
     public function create()
     {
-        $areas = Areas::all();
-        return view('/administrador/createTarea', ['areas'=>$areas]);
+        // $areas = Areas::all();
+        // return view('/administrador/createTarea', ['areas'=>$areas]);
     }
 
     /**
@@ -52,7 +55,7 @@ class TareasController extends Controller
         Tareas::create($data);
 
         //Redireccionar
-        return redirect('/administrador/empShow');
+        return redirect('/tareas/show');
     }
 
     /**
@@ -72,9 +75,16 @@ class TareasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tareas $selTarea)
     {
-        //
+
+        $empleados = Empleados::all();
+        
+        $users = User::select()
+        ->where('userRol', '=', 3)
+        ->get();
+
+        return view('/tareas/asignarTarea', ['selTarea'=>$selTarea, 'empleados'=>$empleados, 'users'=>$users]);
     }
 
     /**
@@ -84,9 +94,24 @@ class TareasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tareas $selTarea)
     {
-        //
+        
+        //Validamos datos
+        $datos = request()->validate([
+            'tarEmpleado' => 'required'
+        ]);
+
+        //Reemplazamos datos por nuevos
+        $selTarea->tarEstado = 'Asignado';
+        $selTarea->tarEmpleado = $datos['tarEmpleado'];
+        $selTarea->tarFechaAsignada = Carbon::now();
+
+        //Guardamos
+        $selTarea->save();
+
+        return redirect('/tareas/show');
+
     }
 
     /**
