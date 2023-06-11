@@ -6,6 +6,8 @@ use App\Models\Supervisor;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
+use App\Models\Administradores;
+use App\Models\Tareas;
 
 class ReportesPdfController extends Controller
 {
@@ -64,4 +66,65 @@ class ReportesPdfController extends Controller
         return view('/reportesPDF/reporteTodosSupervisores');
 
     }
+         //Metodo para mostrar reporte de todos los empleados
+         public function reporteAdministradoresMostrar(){
+            //Obtenemos todos los datos de empleados
+            $administradores = Administradores::all();
+            $pdf = Pdf::loadView('/reportesPDF/reporteTodosAdministradores', compact('administradores'));
+            
+            return $pdf->stream('todos-administradores.pdf');
+            return view('/reportesPDF/reporteTodosAdministradores');
+        }
+    
+        //Metodo para descargar reporte de todos los empleados
+        public function reporteAdministradoresDescargar(){
+            //Obtenemos todos los datos de empleados
+            $administradores = Administradores::all();
+            $pdf = Pdf::loadView('/reportesPDF/reporteTodosAdministradores', compact('administradores'));
+            
+            return $pdf->download('todos-administradores.pdf');
+            return view('/reportesPDF/reporteTodosAdministradores');
+        }
+
+        //Metodo para mostrar reporte de todos los supervisores
+        public function reporteTareasMostrar(){
+            //Obtenemos todos los datos de supervisor
+            $tareas = Tareas::select(
+                'tareas.tarCodigo',
+                'tareas.tarNombre',
+                'tareas.tarEstado',
+                'tareas.tarFechaAsignada',
+                'tareas.tarFechaFinalizada',
+                'empleados.empUser as tarNombre'
+            )
+            ->join('empleados', 'tareas.tarNombre', '=', 'empleados.empUser',);
+    
+    
+            $pdf = Pdf::loadView('/reportesPDF/reporteTodasTareas', compact('tareas'));
+    
+            return $pdf->stream('todos-tareas.pdf');
+            return view('/reportesPDF/reporteTodasTareas');
+    
+        }
+    
+        //Metodo para descargar reporte de todos los tareas
+        public function reporteTareasDescargar(){
+            //Obtenemos todos los datos de tareas
+            $tareas = Tareas::select(
+                'tareas.tarCodigo',
+                'tareas.tarNombre',
+                'tareas.tarEstado',
+                'tareas.tarFechaAsignada',
+                'tareas.tarFechaFinalizada',
+                'empleados.empUser as tarNombre'
+            )
+            ->join('empleados', 'tareas.tarNombre', '=', 'empleados.empUser',)
+            ->get();
+    
+            $pdf = Pdf::loadView('/reportesPDF/reporteTodasTareas', compact('tareas'));
+    
+            return $pdf->download('todos-tareas.pdf');
+            return view('/reportesPDF/reporteTodasTareas');
+    
+        }
 }

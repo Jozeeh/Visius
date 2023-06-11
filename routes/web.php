@@ -1,13 +1,16 @@
 <?php
-use App\Http\Controllers\EmpleadosController;
-use App\Http\Controllers\SupervisorController;
-use App\Http\Controllers\ReportesPdfController;
-use App\Http\Controllers\UsuariosController;
+use App\Models\Administradores;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\TareasController;
+use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\EmpleadosController;
+use App\Http\Controllers\TareasPdfController;
+use App\Http\Controllers\SupervisorController;
+use App\Http\Controllers\ReportesPdfController;
+use App\Http\Controllers\AdministradoresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,10 +74,15 @@ Route::get('/tareas/show', [TareasController::class, 'index']);
         Route::get('/reporte-administradores', [ReportesPdfController::class, 'reporteAdministradoresMostrar']);
         Route::get('/reporte-administradoresDescargar', [ReportesPdfController::class, 'reporteAdministradoresDescargar']);
 
+        Route::get('/reporte-tareas', [ReportesPdfController::class, 'reporteTareasMostrar']);
+        Route::get('/reporte-tareasDescargar', [ReportesPdfController::class, 'reporteTareasDescargar']);
+
 
 Route::get('/reportesPDF/reportesEmpleados', [EmpleadosController::class, 'index'])->middleware('auth');
 Route::get('/reportesPDF/reportesSupervisores', [SupervisorController::class, 'index'])->middleware('auth');
-Route::get('/reportesPDF/reportesAdministradores', [SupervisorController::class, 'index'])->middleware('auth');
+Route::get('/reportesPDF/reportesAdministradores', [AdministradoresController::class, 'index'])->middleware('auth');
+Route::get('/reportesPDF/reportesTareas', [TareasPdfController::class, 'index'])->middleware('auth');
+
 Route::get('/reports', function () {
     return view('reportesPDF/reportes');
 });

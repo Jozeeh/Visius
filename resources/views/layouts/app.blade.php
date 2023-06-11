@@ -158,7 +158,7 @@
 					</li>
 					
 					<li class="nav-item active">
-						<a class="nav-link" href="/">Reporte de tareas</a>
+						<a class="nav-link" href="/reportesPDF/reportesTareas">Reporte de tareas</a>
 					</li>
 
 					<li class="nav-item active">

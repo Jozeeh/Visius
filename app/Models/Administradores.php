@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Administradores extends Model
 {
     use HasFactory;
-    protected $table = 'supervisor';
-    protected $primaryKey = 'supCodigo'; //Llave primario de la tabla
-    protected $fillable = ['supNombre', 'supUser']; // campos para asignacion masiva
+    protected $table = 'empleados';
+    protected $primaryKey = 'empCodigo'; //Llave primario de la tabla
+    protected $fillable = ['empNombre', 'empArea', 'empUser','empSupervisor']; // campos para asignacion masiva
 }

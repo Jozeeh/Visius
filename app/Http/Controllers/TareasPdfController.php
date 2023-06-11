@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Models\Tareas;
 use Illuminate\Http\Request;
 
-use App\Models\Administradores;
-use App\Http\Controllers\Controller;
-
-class AdministradoresController extends Controller
-
+class TareasPdfController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,15 +16,17 @@ class AdministradoresController extends Controller
     public function index()
     {
                 //Mostrar listado de administradores
-                $administradores = Administradores::select(
-                    'empleados.empCodigo',
-                    'users.name as empUser',
-                    'areas.arNombre as empArea'
+                $tareas = Tareas::select(
+                    'tareas.tarCodigo',
+                    'tareas.tarNombre',
+                    'tareas.tarEstado',
+                    'tareas.tarFechaAsignada',
+                    'tareas.tarFechaFinalizada',
+                    'empleados.empUser as tarEmpleado'
                 )
-                ->join('areas', 'empleados.empArea', '=', 'areas.arNombre',)
-                ->join('users', 'empleados.empUser', '=', 'users.name')
+                ->join('empleados', 'tareas.tarEmpleado', '=', 'empleados.empUser',)
                 ->get();
-                return view('/reportesPDF/reportesAdministradores')->with(['administradores' => $administradores]);
+                return view('/reportesPDF/reportesTareas')->with(['tareas' => $tareas]);
     }
 
     /**

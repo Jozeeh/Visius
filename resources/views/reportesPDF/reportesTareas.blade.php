@@ -1,25 +1,24 @@
 @extends('layouts.app')
 
+
 @section('content')
-    <h2 class="text-center">Gestión de Administradores</h2>
+    <h2 class="text-center">Reportes</h2>
     <hr>
 
-
-
     {{--Botón desplegable para reportes PDF--}}
-    <div class="dropdown mt-4">
-
-
+    <div class="dropdown">
         {{--Boton reporte PDF--}}
         <button class="btn btn-sm btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          Reporte PDF Administradores
+          Reporte PDF Tareas
         </button>
         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="/reporte-administradores">Mostrar | Todos los administradores</a></li>
-          <li><a class="dropdown-item" href="/reporte-administradoresDescargar">Descargar | Todos los administradores</a></li>
+          <li><a class="dropdown-item" href="/reporte-tareas">Mostrar | Todos los tareas</a></li>
+          <li><a class="dropdown-item" href="/reporte-tareasDescargar">Descargar | Todos los tareas</a></li>
         </ul>
-        <button class="btn btn-sm btn-success" onclick="window.location.href = '/reports'">Reportes</button>
     </div>
+
+
+
 
     <div class="card mt-4">
         <div class="card-body table-responsive">
@@ -27,15 +26,21 @@
                 <thead>
                     <tr class="table-dark">
                         <td>Código</td>
-                        <td>Usuario</td>
+                        <td>Nombre tarea</td>
+                        <td>Fecha asignada</td>
+                        <td>Fecha finalizada</td>
+                        <td>Empleado</td>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @foreach ($administradores as $item)
-                        <tr class="table-secondary">
-                            <td>{{$item->supCodigo}}</td>
-                            <td>{{$item->supUser}}</td>
+                    @foreach ($tareas as $item)
+                        <tr>
+                            <td>{{$item->tarCodigo}}</td>
+                            <td>{{$item->tarNombre}}</td>
+                            <td>{{$item->tarFechaAsignada}}</td>
+                            <td>{{$item->tarFechaFinalizada}}</td>
+                            <td>{{$item->tarEmpleado}}</td>
                         </tr>
                     @endforeach
                 </tbody>
