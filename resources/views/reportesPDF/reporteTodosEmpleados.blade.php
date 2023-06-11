@@ -40,6 +40,7 @@
             <tr>
                 <td>Codigo</td>
                 <td>Usuario</td>
+                <td>Email</td>
                 <td>Area</td>
             </tr>
         </thead>
@@ -47,12 +48,13 @@
             @foreach ($empleados as $item)
                 <tr>
                     <td>{{$item['empCodigo']}}</td>
-                    <td>{{$item['empUser']}}</td>
+                    <td>{{$item['empName']}}</td>
+                    <td>{{$item['empEmail']}}</td>
                     <td>{{$item['empArea']}}</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-    
+
 </body>
 </html>

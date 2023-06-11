@@ -16,17 +16,7 @@ class EmpleadosController extends Controller
      */
     public function index()
     {
-                //Mostrar listado de empleados
-                $empleados = Empleados::select(
-                    'empleados.empCodigo',
-                    'users.name as empUser',
-                    'areas.arNombre as empArea'
-                )
-                ->join('areas', 'empleados.empArea', '=', 'areas.arNombre',)
-                ->join('users', 'empleados.empUser', '=', 'users.name')
-                ->get();
-                return view('/reportesPDF/reportesEmpleados')->with(['empleados' => $empleados]);
-        //Obtenemos datos de empleados registrados con los datos de las tablas areas, users y supervisores
+
 
         $empleados = Empleados::select(
             'empleados.empCodigo',

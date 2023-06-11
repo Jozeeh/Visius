@@ -24,7 +24,7 @@ class AdministradoresController extends Controller
                     'areas.arNombre as empArea'
                 )
                 ->join('areas', 'empleados.empArea', '=', 'areas.arNombre',)
-                ->join('users', 'empleados.empUser', '=', 'users.name')
+                ->leftjoin('users', 'empleados.empUser', '=', 'users.name')
                 ->get();
                 return view('/reportesPDF/reportesAdministradores')->with(['administradores' => $administradores]);
     }

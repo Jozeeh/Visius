@@ -8,12 +8,12 @@
     {{--Botón desplegable para reportes PDF--}}
     <div class="dropdown">
         {{--Boton reporte PDF--}}
-        <button class="btn btn-sm btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-sm btn-success dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           Reporte PDF Tareas
         </button>
         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="/reporte-tareas">Mostrar | Todos los tareas</a></li>
-          <li><a class="dropdown-item" href="/reporte-tareasDescargar">Descargar | Todos los tareas</a></li>
+          <li><a class="dropdown-item text-white" href="/reporte-tareas">Mostrar | Todos los tareas</a></li>
+          <li><a class="dropdown-item text-white" href="/reporte-tareasDescargar">Descargar | Todos los tareas</a></li>
         </ul>
     </div>
 

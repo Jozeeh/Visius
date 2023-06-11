@@ -11,14 +11,14 @@
 
 
         {{--Boton reporte PDF--}}
-        <button class="btn btn-sm btn-success dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-sm btn-success dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           Reporte PDF Administradores
         </button>
         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="/reporte-administradores">Mostrar | Todos los administradores</a></li>
-          <li><a class="dropdown-item" href="/reporte-administradoresDescargar">Descargar | Todos los administradores</a></li>
+          <li><a class="dropdown-item text-white" href="/reporte-administradores">Mostrar | Todos los administradores</a></li>
+          <li><a class="dropdown-item text-white" href="/reporte-administradoresDescargar">Descargar | Todos los administradores</a></li>
         </ul>
-        <button class="btn btn-sm btn-success" onclick="window.location.href = '/reports'">Reportes</button>
+        <button class="btn btn-sm btn-success text-white" onclick="window.location.href = '/reports'">Reportes</button>
     </div>
 
     <div class="card mt-4">
