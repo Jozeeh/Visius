@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Models\Empleados;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 
 class RegisterController extends Controller
@@ -66,12 +67,38 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        //     'userRol' => $data['userRol']
+        // ]);
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'userRol' => $data['userRol']
-        ]);   
+        ]);
+
+         // Obtener el ID del usuario creado
+        $userId = $user->id;
+
+        // // Insertar el ID en la otra tabla como llave foránea
+        // Empleados::create([
+        //     'empUser' => $userId,
+        //     // Otros campos relacionados
+        // ]);
+
+        if ($data['userRol'] == 3) {
+            // Insertar el ID en la otra tabla como llave foránea
+            Empleados::create([
+                'empUser' => $userId,
+                // Otros campos relacionados
+            ]);
+        }
+
+        return $user;
         
     }
 

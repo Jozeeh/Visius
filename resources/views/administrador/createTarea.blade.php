@@ -4,6 +4,7 @@
     <center>
         <img src="{{ asset('/css/img/logo_transparent.png') }}" alt="Logo" width="250px" class="img-fluid mt-4"><br>
         <p class="w-50">Este es el apartado para la creacion de tareas ya sea que necesites administrar tus tareas diarias, de empleado o necesitas que le sea asignada por un supervisor.</p>
+        <hr class="w-75">
 
         <div class="container">
             <div class="row mt-4">

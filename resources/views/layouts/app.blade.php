@@ -4,6 +4,9 @@
 	<title>@yield('title')</title>
 	<meta charset="UTF-8">
 
+	{{-- css personalizados --}}
+	@yield('css')
+
 	<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -74,7 +77,7 @@
 							<a class="dropdown-item zmdi zmdi-power" href="{{ route('logout') }}"
 							   onclick="event.preventDefault();
 											 document.getElementById('logout-form').submit();">
-								{{ __('Logout') }}
+								{{ __('Cerrar sesión') }}
 							</a>
 
 							<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -100,13 +103,20 @@
 				3 = Empleados --}}
 
 				{{-- Administador --}}
+
+				{{-- inicio de ibenvenida --}}
+				<li class="nav-item active">
+					<a class="nav-link" href="/">Inicio</a>
+				</li>
+
+
 				@if (Auth::user()->userRol == 1)
 					<li class="nav-item active">
-						<a class="nav-link" href="/administrador/empShow">Gestión de empleados</a>
+						<a class="nav-link" href="/gestion-empleados">Gestión de empleados</a>
 					</li>
 
 					<li class="nav-item active">
-						<a class="nav-link" href="/administrador/userShow">Gestión de usuarios</a>
+						<a class="nav-link" href="/gestion-usuarios">Gestión de usuarios</a>
 					</li>
 
 					<li class="nav-item active">
@@ -132,19 +142,19 @@
 				{{-- Supervisor --}}
 				@if (Auth::user()->userRol == 2)
 					<li class="nav-item active">
-						<a class="nav-link" href="/">Gestión de empleados</a>
+						<a class="nav-link" href="/gestion-empleados">Gestión de empleados</a>
 					</li>
 
 					<li class="nav-item active">
 						<a class="nav-link" href="/CreateTareas">Creación de tareas</a>
 					</li>
 
-					<li class="nav-item active">
-						<a class="nav-link" href="/">Asignación de tareas</a>
-					</li>
+					{{-- <li class="nav-item active">
+						<a class="nav-link" href="/supervisor/asignar-tarea">Asignación de tareas</a>
+					</li> --}}
 
 					<li class="nav-item active">
-						<a class="nav-link" href="/">Estado de tareas</a>
+						<a class="nav-link" href="/tareas/show">Estado de tareas</a>
 					</li>
 
 					<li class="nav-item active">

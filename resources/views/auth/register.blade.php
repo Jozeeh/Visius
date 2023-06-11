@@ -11,6 +11,7 @@
         <center><img src="{{ asset('/css/img/logo_transparent.png') }}" alt="Logo" width="20%" class="img-fluid"></center>
         <h2>Registro de usuarios</h2>
         <p class="w-50">Apartado para poder añadir nuevos usuarios según se desee, tenga en cuenta que según el rol del usuario esté tendrá solo opciones especificas que se le han asignado.</p>
+        <hr class="w-75">
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
