@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Empleados;
 use Illuminate\Http\Request;
 
 class EmpleadosController extends Controller
@@ -13,7 +14,16 @@ class EmpleadosController extends Controller
      */
     public function index()
     {
-        //
+                //Mostrar listado de empleados
+                $empleados = Empleados::select(
+                    'empleados.empCodigo',
+                    'users.name as empUser',
+                    'areas.arNombre as empArea'
+                )
+                ->join('areas', 'empleados.empArea', '=', 'areas.arNombre',)
+                ->join('users', 'empleados.empUser', '=', 'users.name')
+                ->get();
+                return view('/reportesPDF/reportesEmpleados')->with(['empleados' => $empleados]);
     }
 
     /**

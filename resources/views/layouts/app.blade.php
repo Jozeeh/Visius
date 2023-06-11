@@ -118,7 +118,7 @@
 					</li>
 
 					<li class="nav-item active">
-						<a class="nav-link" href="/">Reportes</a>
+						<a class="nav-link" href="/reports">Reportes</a>
 					</li>
 					<li>
 						@if (Route::has('register'))
@@ -148,7 +148,7 @@
 					</li>
 
 					<li class="nav-item active">
-						<a class="nav-link" href="/">Reportes</a>
+						<a class="nav-link" href="/reports">Reportes</a>
 					</li>
 				@endif
 				{{-- Si no es administrador o supervisor será empleado --}}

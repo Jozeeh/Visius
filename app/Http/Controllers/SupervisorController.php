@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Supervisor;
 use Illuminate\Http\Request;
 
 class SupervisorController extends Controller
@@ -13,7 +14,13 @@ class SupervisorController extends Controller
      */
     public function index()
     {
-        //
+                //Mostrar listado de empleados
+                $supervisores = Supervisor::select(
+                    'supervisores.supCodigo',
+                    'supervisores.supUser'
+                );
+
+                return view('/reportesPDF/reportesSupervisores')->with(['supervisores' => $supervisores]);
     }
 
     /**

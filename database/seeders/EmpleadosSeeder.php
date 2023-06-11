@@ -18,7 +18,7 @@ class EmpleadosSeeder extends Seeder
     {
         $datos = [
             [
-                'arNombre'=>'C',
+                'arNombre'=>'',
                 'created_at'=>Carbon::now()
             ],
             [
