@@ -28,9 +28,16 @@
                     {{-- <td>{{$item->tarArea}}</td> --}}
                     <td>{{$item->tarEstado}}</td>
                     <td>{{$item->tarEmpleado}}</td>
+                    @if (($item->tarEstado) == 'Asignada')
+                        <td>
+                            <a  class="btn btn-success btn-sm text-white">¡Ya ah sido Asignada!</a>
+                        </td>
+                    @else
                     <td>
                         <a href="/edit/asignar-tarea/{{$item->tarCodigo}}" class="btn btn-success btn-sm text-white">Asignar</a>
                     </td>
+                    @endif
+                    
                 </tr>
                 {{-- @if ($item->tarEstado == 'Creada')
                 
@@ -41,5 +48,15 @@
     </table>
 </div>
     
+
+@endsection
+
+@section('js')
+
+<link rel="stylesheet" href="@sweetalert2/themes/dark/dark.css">
+<script src="sweetalert2/dist/sweetalert2.min.js"></script>
+    
+    <script src="{{asset('js/tareasAsignadas.js')}}"></script>
+
 
 @endsection

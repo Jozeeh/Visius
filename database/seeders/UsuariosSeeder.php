@@ -36,7 +36,7 @@ class UsuariosSeeder extends Seeder
         [
             'name' => 'Matias Manuel Hernandez Marroquin',
             'email' => 'matias_hernandez@gvisius.com',
-            'password' => Hash::make('administrador'),
+            'password' => Hash::make('matias123'),
             'userRol' => '3',
             'created_at'=>Carbon::now()
         ],

@@ -311,5 +311,6 @@
 		$.material.init();
 	</script>
 	</div>
+	@yield('js')
 </body>
 </html>
