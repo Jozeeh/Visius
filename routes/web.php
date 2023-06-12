@@ -90,21 +90,26 @@ Route::get('/edit/asignar-tarea/{selTarea}', [TareasController::class, 'edit']);
 Route::put('/update/asignar-tarea/{selTarea}', [TareasController::class, 'update']);
 
 //////////////////////////////////////
-//      REPORTES PDF      //
+//          REPORTES PDF            //
 //////////////////////////////////////
 
-// [ Empleados-PDF ]
-//(Todos los empleados)
-Route::get('/reporte-empleados', [ReportesPdfController::class, 'reporteEmpleadosMostrar']);
-Route::get('/reporte-empleadosDescargar', [ReportesPdfController::class, 'reporteEmpleadosDescargar']);
+// [ EMPLEADOS-PDF ]
+    // [VISTA REPORTES EMPLEADOS]
+Route::get('/reportes-empleados', [ReportesPdfController::class, 'index']);
 
-// [ supervisores-PDF ]
-        //(Todos los supervisores)
+    // [Generar reportes todos los empleados <Generar y descargar>]
+Route::get('/reporte-empleadosTodos', [ReportesPdfController::class, 'reporteEmpleadosMostrar']);
+Route::get('/reporte-empleadosDescargar', [ReportesPdfController::class, 'reporteEmpleadosDescargar']);
+    // [Generar reportes de los empleados según el área]
+Route::post('/reporte-empleadosArea', [ReportesPdfController::class, 'reporteEmpleadosArea']);
+
+// [ SUPERVISORES-PDF ]
+    //(Todos los supervisores)
 Route::get('/reporte-supervisores', [ReportesPdfController::class, 'reporteSupervisoresMostrar']);
 Route::get('/reporte-supervisoresDescargar', [ReportesPdfController::class, 'reporteSupervisoresDescargar']);
 
 // [ administradores-PDF ]
-        //(Todos los administradores)
+    //(Todos los administradores)
 Route::get('/reporte-administradores', [ReportesPdfController::class, 'reporteAdministradoresMostrar']);
 Route::get('/reporte-administradoresDescargar', [ReportesPdfController::class, 'reporteAdministradoresDescargar']);
 
@@ -112,10 +117,11 @@ Route::get('/reporte-tareas', [ReportesPdfController::class, 'reporteTareasMostr
 Route::get('/reporte-tareasDescargar', [ReportesPdfController::class, 'reporteTareasDescargar']);
 
 
-Route::get('/reportesPDF/reportesEmpleados', [EmpleadosPdfController::class, 'index'])->middleware('auth');
+// Route::get('/reportesPDF/reportesEmpleados', [EmpleadosPdfController::class, 'index'])->middleware('auth');
 Route::get('/reportesPDF/reportesSupervisores', [SupervisorController::class, 'index'])->middleware('auth');
 Route::get('/reportesPDF/reportesAdministradores', [AdministradoresController::class, 'index'])->middleware('auth');
 Route::get('/reportesPDF/reportesTareas', [TareasPdfController::class, 'index'])->middleware('auth');
+
 
 Route::get('/reportes', function () {
     return view('reportesPDF/reportes');
