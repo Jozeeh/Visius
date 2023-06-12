@@ -131,6 +131,15 @@ class TareasController extends Controller
 
     }
 
+    // funion para indicar que la tarea va a revision
+    public function revision(Tareas $selTarea){
+        
+        $selTarea->tarEstado = 'Revision';
+
+        $selTarea->save();
+        return redirect('/tareas/show');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
