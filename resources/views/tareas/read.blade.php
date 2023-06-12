@@ -57,9 +57,13 @@
                         {{-- <td>{{$item->tarArea}}</td> --}}
                         <td>{{$item->tarEstado}}</td>
                         <td>{{$item->tarEmpleado}}</td>
-                        @if (($item->tarEstado) == 'Asignada' || ($item->tarEstado) == 'Revision' )
+                        @if (($item->tarEstado) == 'Asignada')
                             <td>
                                 <a  class="btn btn-success btn-sm text-white">¡Ya ah sido Asignada!</a>
+                            </td>
+                        @elseif(($item->tarEstado) == 'Revision')
+                            <td>
+                                <a href="" class="btn btn-success btn-sm text-white" onclick="revision(this)">En solicitud de revision</a>
                             </td>
                         @else
                         <td>
@@ -82,5 +86,9 @@
 </div>
     
 
+@endsection
+
+@section('js')
+    <script src="{{asset('/js/alertasTareas.js')}}"></script>
 @endsection
 
