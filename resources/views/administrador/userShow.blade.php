@@ -26,6 +26,7 @@
                 <td>Correo electronico</td>
                 
                 <td>Rol de usuario</td>
+                <td>eventos</td>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +38,10 @@
                     <td>{{$item->email}}</td>
                     
                     <td>{{$item->rolNombre}}</td>
+                    <td>
+                        <a href="/products/edit/{{$item->codigo}}" class="btn btn-success btn-sm">Modificar</a>
+                        <button class="btn btn-danger btn-sm" url="/products/destroy/{{$item->codigo}}" onclick="destroy(this)" token="{{csrf_token()}}">Eliminar</button>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

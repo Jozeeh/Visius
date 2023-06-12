@@ -61,6 +61,10 @@
                             <td>
                                 <a  class="btn btn-success btn-sm text-white">¡Ya ah sido Asignada!</a>
                             </td>
+                        @elseif(($item->tarEstado) == 'Revision')
+                            <td>
+                                <a href="" class="btn btn-success btn-sm text-white" onclick="revision(this)">En solicitud de revision</a>
+                            </td>
                         @else
                         <td>
                             <a href="/edit/asignar-tarea/{{$item->tarCodigo}}" class="btn btn-success btn-sm text-white">Asignar</a>
@@ -82,5 +86,9 @@
 </div>
     
 
+@endsection
+
+@section('js')
+    <script src="{{asset('/js/alertasTareas.js')}}"></script>
 @endsection
 
