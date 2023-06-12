@@ -38,7 +38,7 @@
     <table>
         <thead>
             <tr>
-                <td>Codigo</td>
+                <td>Codigo empleado</td>
                 <td>Empleado</td>
                 <td>Correo</td>
                 <td>Area</td>
