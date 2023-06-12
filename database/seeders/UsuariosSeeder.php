@@ -26,7 +26,7 @@ class UsuariosSeeder extends Seeder
             'userRol' => '1',
             'created_at'=>Carbon::now()
         ]
-
+        
         ];
         DB::table('users')->insert($datos);
     }
