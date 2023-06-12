@@ -57,7 +57,7 @@
                         {{-- <td>{{$item->tarArea}}</td> --}}
                         <td>{{$item->tarEstado}}</td>
                         <td>{{$item->tarEmpleado}}</td>
-                        @if (($item->tarEstado) == 'Asignada')
+                        @if (($item->tarEstado) == 'Asignada' || ($item->tarEstado) == 'Revision' )
                             <td>
                                 <a  class="btn btn-success btn-sm text-white">¡Ya ah sido Asignada!</a>
                             </td>
