@@ -44,6 +44,15 @@
                 </select>
             </div>
 
+            <div class="col-6 mt-4">
+                <b>Asignar supervisor:</b>
+                <select name="empSupervisor" class="form-control text-center">
+                    @foreach ($supervisores as $item)
+                        <option value="{{$item->supCodigo}}">{{$item->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <button class="btn btn-warning text-dark">Asignar área</button>
 
         </form>

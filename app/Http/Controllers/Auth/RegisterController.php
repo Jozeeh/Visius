@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Models\Empleados;
+use App\Models\Supervisor;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
@@ -89,6 +90,14 @@ class RegisterController extends Controller
         //     'empUser' => $userId,
         //     // Otros campos relacionados
         // ]);
+
+        if ($data['userRol'] == 2) {
+            // Insertar el ID en la otra tabla como llave foránea
+            Supervisor::create([
+                'supUser' => $userId,
+                // Otros campos relacionados
+            ]);
+        }
 
         if ($data['userRol'] == 3) {
             // Insertar el ID en la otra tabla como llave foránea

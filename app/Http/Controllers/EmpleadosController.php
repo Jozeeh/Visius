@@ -85,7 +85,14 @@ class EmpleadosController extends Controller
         //Obtenemos datos de la tabla users
         $users = User::all();
 
-        return view('/administrador/empUpdate', ['selEmpleado'=>$selEmpleado,'areas'=>$areas, 'users'=>$users]);
+        $supervisores = User::select(
+            'users.id',
+            'users.name',
+            'supervisores.supCodigo',
+            'supervisores.supUser'
+        )->join('supervisores', 'supervisores.supUser', '=', 'users.id')->get();
+
+        return view('/administrador/empUpdate', ['selEmpleado'=>$selEmpleado,'areas'=>$areas, 'users'=>$users, 'supervisores'=>$supervisores]);
 
     }
 

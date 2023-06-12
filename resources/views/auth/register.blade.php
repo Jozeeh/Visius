@@ -70,20 +70,42 @@
                 
                 <label for="userRol" class="col-md-4 col-form-label text-md-end mt-4 text-dark">{{ __('Rol de usuario') }}</label>
 
-                <div class="col-md-6">
-                    <select id="userRol" class="form-control text-center @error('userRol') is-invalid @enderror" name="userRol" value="{{ old('userRol') }}" required>
-                        @foreach ($roles as $item)
-                            <option value="{{$item->rolCodigo}}">
-                                {{$item->rolNombre}}
-                            </option>
-                        @endforeach
-                    </select>
-                    @error('userRol')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
+                @if ((Auth::user()->userRol) == 1)
+                    <div class="col-md-6">
+                        <select id="userRol" class="form-control text-center @error('userRol') is-invalid @enderror" name="userRol" value="{{ old('userRol') }}" required>
+                            @foreach ($roles as $item)
+                                <option value="{{$item->rolCodigo}}">
+                                    {{$item->rolNombre}}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('userRol')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    
+                @else
+                    <div class="col-md-6">
+                        <select id="userRol" class="form-control text-center @error('userRol') is-invalid @enderror" name="userRol" value="{{ old('userRol') }}" required>
+                            @foreach ($roles as $item)
+                            @if ($item->rolCodigo == 3)
+                                <option value="{{$item->rolCodigo}}">
+                                    {{$item->rolNombre}}
+                                </option>
+                            @endif
+                                
+                            @endforeach
+                        </select>
+                        @error('userRol')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div> 
+                @endif
+                
             </div>
 
             <div class="row mb-0">

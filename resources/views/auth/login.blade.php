@@ -22,6 +22,10 @@
 </head>
 <body>
 
+    <audio  autoplay loop>
+        <source src="{{asset('/mp3/login.,p3')}}" type="audio/mpeg">
+    </audio>
+
     <style>
         body{
             background-color: rgb(212,212,212);
