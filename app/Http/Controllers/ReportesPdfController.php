@@ -13,8 +13,25 @@ class ReportesPdfController extends Controller
 {
      //Metodo para mostrar reporte de todos los empleados
     public function reporteEmpleadosMostrar(){
-        //Obtenemos todos los datos de empleados
-        $empleados = Empleados::all();
+        
+        //Obtenemos datos de empleados registrados
+        $empleados = Empleados::select(
+            'empleados.empCodigo',
+            'users.name AS empName',
+            'users.email AS empEmail',
+            'areas.arNombre AS empArea',
+            'users.id AS empUser',
+            'supervisores.supUser AS empSupervisor'
+        )
+        ->join('users', 'empleados.empUser', '=', 'users.id')
+        ->leftJoin('areas', 'empleados.empArea', '=', 'areas.arCodigo')
+        ->leftJoin('supervisores', 'empleados.empSupervisor', '=', 'supervisores.supCodigo')
+        ->where(function ($query) {
+            $query->whereNull('areas.arNombre')
+                ->orWhere('areas.arNombre', '<>', '');
+        })
+        ->get();
+
         $pdf = Pdf::loadView('/reportesPDF/reporteTodosEmpleados', compact('empleados'));
         
         return $pdf->stream('todos-empleados.pdf');

@@ -18,8 +18,25 @@ class TareasController extends Controller
      */
     public function index()
     {
-        $tareas = Tareas::all();
+
+        $tareas = Tareas::select(
+            'tareas.tarCodigo',
+            'tareas.tarNombre',
+            'tareas.tarDescripcion',
+            'tareas.tarEstado',
+            'empleados.empUser as tarIdUserEmpleado',
+            'users.name as tarEmpleado',
+        )
+        ->leftJoin('empleados', 'tareas.tarEmpleado', '=', 'empleados.empCodigo')
+        ->leftJoin('users', 'empleados.empUser', '=', 'users.id')
+        ->where(function($query) {
+            $query->whereNull('tarEmpleado')
+                ->orWhere('tarEmpleado', '<>', '');
+        })
+        ->get();
+        
         return view('/tareas/read', ['tareas'=>$tareas]);
+        
     }
 
     /**
@@ -103,7 +120,7 @@ class TareasController extends Controller
         ]);
 
         //Reemplazamos datos por nuevos
-        $selTarea->tarEstado = 'Asignado';
+        $selTarea->tarEstado = 'Asignada';
         $selTarea->tarEmpleado = $datos['tarEmpleado'];
         $selTarea->tarFechaAsignada = Carbon::now();
 

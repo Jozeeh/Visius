@@ -55,6 +55,7 @@
             </div>
 
             <button class="btn btn-warning text-dark">Asignar empleado</button>
+            <a href="/tareas/show" class="btn btn-danger text-white">Cancelar</a>
 
         </form>
         </center>

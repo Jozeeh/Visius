@@ -2,7 +2,7 @@
 @section('content')
     
 <div class="container">
-    {{--José--}}
+    
     <center>
         <img src="{{ asset('/css/img/logo_transparent.png') }}" alt="Logo" width="20%" class="img-fluid mt-4">
         <h1 class="mt-4">Tareas a Asignar</h1>

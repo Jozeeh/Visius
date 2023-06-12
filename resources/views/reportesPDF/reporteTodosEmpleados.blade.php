@@ -39,8 +39,8 @@
         <thead>
             <tr>
                 <td>Codigo</td>
-                <td>Usuario</td>
-                <td>Email</td>
+                <td>Empleado</td>
+                <td>Correo</td>
                 <td>Area</td>
             </tr>
         </thead>

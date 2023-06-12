@@ -16,7 +16,6 @@
           <li><a class="dropdown-item text-white" href="/reporte-empleadosDescargar">Descargar | Todos los empleados</a></li>
         </ul>
         <button class="btn btn-sm btn-success text-white" onclick="window.location.href = '/reports'">Reportes</button>
-
     </div>
 
 
@@ -28,8 +27,8 @@
                 <thead>
                     <tr class="table-dark">
                         <td>Código</td>
-                        <td>Usuario</td>
-                        <td>Email</td>
+                        <td>Empleado</td>
+                        <td>Correo</td>
                         <td>Area</td>
                     </tr>
                 </thead>

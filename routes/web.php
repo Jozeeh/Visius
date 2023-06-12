@@ -88,23 +88,27 @@ Route::get('/edit/asignar-tarea/{selTarea}', [TareasController::class, 'edit']);
     // [RUTA QUE MANDARÁ A ACTUALIZAR LOS CAMBIOS DE LA TAREA Y PARA ASIGNARLA]
 Route::put('/update/asignar-tarea/{selTarea}', [TareasController::class, 'update']);
 
-// [ Empleados-PDF ]
-        //(Todos los empleados)
-        Route::get('/reporte-empleados', [ReportesPdfController::class, 'reporteEmpleadosMostrar']);
-        Route::get('/reporte-empleadosDescargar', [ReportesPdfController::class, 'reporteEmpleadosDescargar']);
-        
-        // [ supervisores-PDF ]
-                //(Todos los supervisores)
-        Route::get('/reporte-supervisores', [ReportesPdfController::class, 'reporteSupervisoresMostrar']);
-        Route::get('/reporte-supervisoresDescargar', [ReportesPdfController::class, 'reporteSupervisoresDescargar']);
-        
-        // [ administradores-PDF ]
-                //(Todos los administradores)
-        Route::get('/reporte-administradores', [ReportesPdfController::class, 'reporteAdministradoresMostrar']);
-        Route::get('/reporte-administradoresDescargar', [ReportesPdfController::class, 'reporteAdministradoresDescargar']);
+//////////////////////////////////////
+//      REPORTES PDF      //
+//////////////////////////////////////
 
-        Route::get('/reporte-tareas', [ReportesPdfController::class, 'reporteTareasMostrar']);
-        Route::get('/reporte-tareasDescargar', [ReportesPdfController::class, 'reporteTareasDescargar']);
+// [ Empleados-PDF ]
+//(Todos los empleados)
+Route::get('/reporte-empleados', [ReportesPdfController::class, 'reporteEmpleadosMostrar']);
+Route::get('/reporte-empleadosDescargar', [ReportesPdfController::class, 'reporteEmpleadosDescargar']);
+
+// [ supervisores-PDF ]
+        //(Todos los supervisores)
+Route::get('/reporte-supervisores', [ReportesPdfController::class, 'reporteSupervisoresMostrar']);
+Route::get('/reporte-supervisoresDescargar', [ReportesPdfController::class, 'reporteSupervisoresDescargar']);
+
+// [ administradores-PDF ]
+        //(Todos los administradores)
+Route::get('/reporte-administradores', [ReportesPdfController::class, 'reporteAdministradoresMostrar']);
+Route::get('/reporte-administradoresDescargar', [ReportesPdfController::class, 'reporteAdministradoresDescargar']);
+
+Route::get('/reporte-tareas', [ReportesPdfController::class, 'reporteTareasMostrar']);
+Route::get('/reporte-tareasDescargar', [ReportesPdfController::class, 'reporteTareasDescargar']);
 
 
 Route::get('/reportesPDF/reportesEmpleados', [EmpleadosPdfController::class, 'index'])->middleware('auth');
@@ -112,6 +116,6 @@ Route::get('/reportesPDF/reportesSupervisores', [SupervisorController::class, 'i
 Route::get('/reportesPDF/reportesAdministradores', [AdministradoresController::class, 'index'])->middleware('auth');
 Route::get('/reportesPDF/reportesTareas', [TareasPdfController::class, 'index'])->middleware('auth');
 
-Route::get('/reports', function () {
+Route::get('/reportes', function () {
     return view('reportesPDF/reportes');
 });
