@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="col-6">
-                <div class="card bg-light mb-3" style="max-width: 38rem;">
+                <div class="card bg-light mb-3" style="max-width: 38rem;" class="h-100">
                     <div class="card-body">
                       <center><img class="card-img-top" src="/css/img/vision-baja.png" style="width: 20%" alt="Card image cap"></center>
                       <hr>
