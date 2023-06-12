@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Supervisor extends Model
 {
     use HasFactory;
-    protected $table = 'supervisor';
+    protected $table = 'supervisores';
     protected $primaryKey = 'supCodigo'; //Llave primario de la tabla
-    protected $fillable = ['supNombre', 'supUser']; // campos para asignacion masiva
+    protected $fillable = ['supUser']; // campos para asignacion masiva
 }

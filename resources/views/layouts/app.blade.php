@@ -161,6 +161,14 @@
 						<a class="nav-link" href="/tareas/show">Estado de tareas</a>
 					</li>
 
+					<li>
+						@if (Route::has('register'))
+							<li class="nav-item">
+								<a class="nav-link" href="{{ route('register') }}">{{ __('Registrar usuarios') }}</a>
+							</li>
+						@endif
+					</li>
+
 					<li class="nav-item active">
 						<a class="nav-link" href="/reports">Reportes</a>
 					</li>

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Areas;
 use App\Models\Tareas;
 use App\Models\Empleados;
+use App\Models\Supervisor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -101,7 +102,14 @@ class TareasController extends Controller
         ->where('userRol', '=', 3)
         ->get();
 
-        return view('/tareas/asignarTarea', ['selTarea'=>$selTarea, 'empleados'=>$empleados, 'users'=>$users]);
+        $supervisores = User::select(
+            'users.id',
+            'users.name',
+            'supervisores.supCodigo',
+            'supervisores.supUser'
+        )->join('supervisores', 'supervisores.supUser', '=', 'users.id')->get();
+
+        return view('/tareas/asignarTarea', ['selTarea'=>$selTarea, 'empleados'=>$empleados, 'users'=>$users, 'supervisores' =>$supervisores]);
     }
 
     /**
