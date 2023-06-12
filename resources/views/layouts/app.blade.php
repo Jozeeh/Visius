@@ -45,7 +45,6 @@
 			</div>
 			<!-- SideBar User info -->
 			@guest
-
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				<li>
 					@if (Route::has('login'))
@@ -54,21 +53,23 @@
 						</li>
 					@endif
 				</li>
-			
 			</ul>
-			
-			
-
-		
-
 		@else
-
 			<div class="full-box dashboard-sideBar-UserInfo">
-
 				<figure class="full-box">
 					<img src="{{asset('/assets/img/avatar.png')}}" alt="UserIcon">
 					<figcaption class="text-center text-titles">{{ Auth::user()->name }}</figcaption>
-					<figcaption class="text-center text-titles">{{ Auth::user()->userRol }}</figcaption>
+					<figcaption class="text-center text-titles">
+						@if (Auth::user()->userRol == 1)
+							Administrador
+						@endif
+						@if (Auth::user()->userRol == 2)
+							Supervisor
+						@endif
+						@if (Auth::user()->userRol == 3)
+							Empleado
+						@endif
+					</figcaption>
 				</figure>
 				<ul class="full-box list-unstyled text-center">
 					{{-- <li>
@@ -77,21 +78,17 @@
 						</a>
 					</li> --}}
 					<li>
-						
-							<a class="dropdown-item zmdi zmdi-power" href="{{ route('logout') }}"
-							   onclick="event.preventDefault();
-											 document.getElementById('logout-form').submit();">
-								{{ __('Cerrar sesión') }}
-							</a>
-
-							<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-								@csrf
-							</form>
-						
+						<a class="dropdown-item zmdi zmdi-power" href="{{ route('logout') }}"
+						   onclick="event.preventDefault();
+										 document.getElementById('logout-form').submit();">
+							{{ __('Cerrar sesión') }}
+						</a>
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+							@csrf
+						</form>		
 					</li>
 				</ul>
 			</div>
-
 			
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
@@ -250,10 +247,6 @@
 					</ul>
 				</li>
 			</ul> --}}
-			
-
-			
-
 			@endguest
 		</div>
 
