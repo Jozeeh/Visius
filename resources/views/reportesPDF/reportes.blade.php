@@ -32,7 +32,7 @@
                         <div class="card-body">
                           <h5 class="card-title">¿Necesitas reporte de los empleados?</h5>
                           <p class="card-text">Click en el botón ir a la sección y generar un reporte.</p>
-                          <a href="/reportesPDF/reportesEmpleados" class="btn btn-sm btn-success text-white">Reportes Empleados</a>
+                          <a href="/reportes-empleados" class="btn btn-sm btn-success text-white">Reportes Empleados</a>
                         </div>
                       </div>
                     </div>
@@ -94,14 +94,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
         
-
-        <button class="btn btn-sm btn-success text-white" onclick="window.location.href = '/reportesPDF/reportesEmpleados'">Reportes Empleados</button>
-        <button class="btn btn-sm btn-success text-white" onclick="window.location.href = '/reportesPDF/reportesSupervisores'">Reportes Supervisores</button>
-        <button class="btn btn-sm btn-success text-white" onclick="window.location.href = '/reportesPDF/reportesAdministradores'">Reportes Administradores</button>
-        <button class="btn btn-sm btn-success text-white" onclick="window.location.href = '/reportesPDF/reportesTareas'">Reportes Tareas</button>
     </div>
 
 

@@ -84,12 +84,6 @@ class RegisterController extends Controller
          // Obtener el ID del usuario creado
         $userId = $user->id;
 
-        // // Insertar el ID en la otra tabla como llave foránea
-        // Empleados::create([
-        //     'empUser' => $userId,
-        //     // Otros campos relacionados
-        // ]);
-
         if ($data['userRol'] == 3) {
             // Insertar el ID en la otra tabla como llave foránea
             Empleados::create([
