@@ -16,8 +16,8 @@ class EmpleadosController extends Controller
      */
     public function index()
     {
-
-
+        
+        //Obtenemos datos de empleados registrados con los datos de las tablas areas, users y supervisores
         $empleados = Empleados::select(
             'empleados.empCodigo',
             'users.name AS empName',
