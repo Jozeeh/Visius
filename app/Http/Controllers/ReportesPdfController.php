@@ -1,16 +1,53 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Areas;
+use App\Models\Tareas;
 use App\Models\Empleados;
 use App\Models\Supervisor;
 use Illuminate\Http\Request;
+use App\Models\Administradores;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
-use App\Models\Administradores;
-use App\Models\Tareas;
 
 class ReportesPdfController extends Controller
 {
+    public function index(){
+        
+        //obtenemos valores de la tabla áreas
+        $areas = Areas::all();
+        
+        return view('/reportesPDF/reportesEmpleados', ['areas'=>$areas]);
+    }
+
+    public function reporteEmpleadosArea(Request $request){
+
+        //Guardamos ID obtenido del área
+        $idEmpleadosArea = $request->input('selectEmpleadosArea');
+
+        //Obtenemos datos de empleados registrados con el área
+        $empleadosArea = Empleados::select(
+        'empleados.empCodigo', 
+        'users.name AS empName', 
+        'users.email AS empEmail', 
+        'areas.arNombre AS empNombreArea', 
+        'users.id AS empUser', 
+        'supervisores.supUser AS empSupervisor')
+        ->join('users', 'empleados.empUser', '=', 'users.id')
+        ->leftJoin('areas', 'empleados.empArea', '=', 'areas.arCodigo')
+        ->leftJoin('supervisores', 'empleados.empSupervisor', '=', 'supervisores.supCodigo')
+        ->where(function ($query) {
+            $query->whereNull('areas.arNombre')
+                ->orWhere('areas.arNombre', '<>', '');
+        })
+        ->where('areas.arCodigo', '=', $idEmpleadosArea)
+        ->get();
+
+        $pdf = Pdf::loadView('/reportesPDF/reportesEmpleadosArea', compact('empleadosArea'));
+        return $pdf->stream('reporte-empleados-area');
+
+    }
+
      //Metodo para mostrar reporte de todos los empleados
     public function reporteEmpleadosMostrar(){
         
@@ -35,7 +72,6 @@ class ReportesPdfController extends Controller
         $pdf = Pdf::loadView('/reportesPDF/reporteTodosEmpleados', compact('empleados'));
         
         return $pdf->stream('todos-empleados.pdf');
-        return view('/reportesPDF/reporteTodosEmpleados');
     }
 
     //Metodo para descargar reporte de todos los empleados
@@ -45,7 +81,6 @@ class ReportesPdfController extends Controller
         $pdf = Pdf::loadView('/reportesPDF/reporteTodosEmpleados', compact('empleados'));
         
         return $pdf->download('todos-empleados.pdf');
-        return view('/reportesPDF/reporteTodosEmpleados');
     }
 
     //Metodo para mostrar reporte de todos los supervisores
