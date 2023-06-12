@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\UsuariosSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,7 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(
             [
                 AreasSeeder::class,
-                RolesSeeder::class
+                RolesSeeder::class,
+                UsuariosSeeder::class
             ]
         );
     }
