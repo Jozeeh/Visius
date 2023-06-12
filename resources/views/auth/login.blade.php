@@ -19,12 +19,14 @@
 	<link rel="stylesheet" href="{{asset('css/main.css')}}">
     <!-- Scripts -->
 	 @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+     
 </head>
 <body>
 
-    <audio  autoplay loop>
-        <source src="{{asset('/mp3/login.,p3')}}" type="audio/mpeg">
-    </audio>
+    <audio autoplay loop>
+        <source src="{{ asset('mp3/login.mp3') }}" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+      </audio>
 
     <style>
         body{
@@ -117,6 +119,7 @@
 	<script>
 		$.material.init();
 	</script>
+        
 	</div>
     
 </body>
