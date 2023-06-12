@@ -21,11 +21,26 @@ class UsuariosSeeder extends Seeder
         $datos = [
         [
             'name' => 'Administrador',
-            'email' => 'Administrador@gmail.com',
+            'email' => 'administrador@visius.com',
             'password' => Hash::make('administrador'),
             'userRol' => '1',
             'created_at'=>Carbon::now()
-        ]
+        ],
+        [
+            'name' => 'Nicolas Francisco Martinez Argeta',
+            'email' => 'nicolas_martinez@visius.com',
+            'password' => Hash::make('nicolas123'),
+            'userRol' => '2',
+            'created_at'=>Carbon::now()
+        ],
+        [
+            'name' => 'Matias Manuel Hernandez Marroquin',
+            'email' => 'matias_hernandez@gvisius.com',
+            'password' => Hash::make('administrador'),
+            'userRol' => '3',
+            'created_at'=>Carbon::now()
+        ],
+
         ];
         DB::table('users')->insert($datos);
     }
