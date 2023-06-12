@@ -567,6 +567,7 @@ class ComposerStaticInit6eb8cc4539cd6b3f9c38dfc6ffc25076
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\EmpleadosController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmpleadosController.php',
+        'App\\Http\\Controllers\\EmpleadosPdfController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmpleadosPdfController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ReportesPdfController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReportesPdfController.php',
         'App\\Http\\Controllers\\RolesController' => __DIR__ . '/../..' . '/app/Http/Controllers/RolesController.php',

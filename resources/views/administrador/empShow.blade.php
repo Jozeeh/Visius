@@ -39,9 +39,16 @@
                     <td>{{$item->empArea}}</td>
                     <td>{{$item->empUser}}</td>
                     {{-- <td>{{$item->empSupervisor}}</td> --}}
+                    @if (($item->empArea != null))
+                    <td>
+                        <a class="btn btn-success btn-sm text-white">Area ya asignada</a>
+                    </td>
+                    @else
                     <td>
                         <a href="/edit/asignar-area/{{$item->empCodigo}}" class="btn btn-success btn-sm text-white">Asignar area</a>
                     </td>
+                    @endif
+                    
                 </tr>
             @endforeach
         </tbody>

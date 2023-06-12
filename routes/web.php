@@ -39,9 +39,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('in
 /////////////////////////////
 
     // [VISTA DE USUARIOS REGISTRADOS]
-Route::get('/gestion-usuarios', function () {
-    return view('/administrador/userShow');     //Mostrar usuarios registrados
-});
+Route::get('/gestion-usuarios', [UsuariosController::class, 'index']);
 
 /////////////////////////////
 //       EMPLEADOS         //
@@ -72,6 +70,9 @@ Route::get('/CreateTareas', function () {
 
     // [RUTA CREAR TAREAS]
 Route::post('/tareas/store', [TareasController::class, 'store']);
+
+    // [RUTA CREAR TAREAS]
+Route::get('/tareas/revision/{selTarea}', [TareasController::class, 'revision']);
 
     // [VISTA MOSTRAR TAREAS]
 Route::get('/tareas/show', [TareasController::class, 'index']);

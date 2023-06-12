@@ -24,21 +24,21 @@
                 <td>Codigo</td>
                 <td>Nombre</td>
                 <td>Correo electronico</td>
-                <td>Contraseña</td>
+                
                 <td>Rol de usuario</td>
             </tr>
         </thead>
         <tbody>
             {{-- Usuarios registrados --}}
-            {{-- @foreach ($collection as $item)
+            @foreach ($usuarios as $item)
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{$item->id}}</td>
+                    <td>{{$item->name}}</td>
+                    <td>{{$item->email}}</td>
+                    
+                    <td>{{$item->rolNombre}}</td>
                 </tr>
-            @endforeach --}}
+            @endforeach
         </tbody>
         </table>
     </div>

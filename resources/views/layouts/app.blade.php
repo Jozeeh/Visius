@@ -10,6 +10,10 @@
 	<!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+	{{-- sweetalert --}}
+	<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+	
+
 	{{-- icono de pestaña --}}
 	<link rel="shortcut icon" href="{{ asset('/css/img/logo_transparent.png') }}" type="image/x-icon">
 
@@ -164,7 +168,7 @@
 				{{-- Si no es administrador o supervisor será empleado --}}
 				@if (Auth::user()->userRol == 3)
 					<li class="nav-item active">
-						<a class="nav-link" href="/">Tareas asignadas</a>
+						<a class="nav-link" href="/tareas/show">Tareas asignadas</a>
 					</li>
 					
 					<li class="nav-item active">
@@ -301,15 +305,17 @@
 
 	<!--====== Scripts -->
 	<script src="{{asset('/js/jquery-3.1.1.min.js')}}"></script>
-	<script src="{{asset('/js/sweetalert2.min.js')}}"></script>
-	<script src="{{asset('/js/bootstrap.min.js')}}"></script>
+	{{-- <script src="{{asset('/js/sweetalert2.min.js')}}"></script> --}}
+	{{-- <script src="{{asset('/js/bootstrap.min.js')}}"></script> --}}
 	<script src="{{asset('/js/material.min.js')}}"></script>
 	<script src="{{asset('/js/ripples.min.js')}}"></script>
 	<script src="{{asset('/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 	<script src="{{asset('/js/main.js')}}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 	<script>
 		$.material.init();
 	</script>
 	</div>
+	@yield('js')
 </body>
 </html>

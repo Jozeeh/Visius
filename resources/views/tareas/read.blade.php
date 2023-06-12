@@ -21,21 +21,61 @@
             </tr>
         </thead>
         <tbody class="table-secondary">
+
+            @if (Auth::user()->userRol == 3)
+
             @foreach ($tareas as $item)
-                <tr>
-                    <td><b>{{$item->tarNombre}}</b></td>
-                    <td>{{$item->tarDescripcion}}</td>
-                    {{-- <td>{{$item->tarArea}}</td> --}}
-                    <td>{{$item->tarEstado}}</td>
-                    <td>{{$item->tarEmpleado}}</td>
-                    <td>
-                        <a href="/edit/asignar-tarea/{{$item->tarCodigo}}" class="btn btn-success btn-sm text-white">Asignar</a>
-                    </td>
-                </tr>
-                {{-- @if ($item->tarEstado == 'Creada')
-                
-                @endif --}}
+                @if ($item->tarEmpleado == Auth::user()->name)
+                    @if ($item->tarEstado != 'Revision')
+                        <tr>
+                            <td><b>{{$item->tarNombre}}</b></td>
+                            <td>{{$item->tarDescripcion}}</td>
+                            {{-- <td>{{$item->tarArea}}</td> --}}
+                            <td>{{$item->tarEstado}}</td>
+                            <td>{{$item->tarEmpleado}}</td>
+                            <td>
+                                <a href="/tareas/revision/{{$item->tarCodigo}}" class="btn btn-success btn-sm text-white">Finalizar</a>
+                            </td>
+                            
+                            
+                        </tr>
+                        {{-- @if ($item->tarEstado == 'Creada')
+                        
+                        @endif --}}
+                    @endif
+                @endif
             @endforeach
+                    
+                
+                
+            @else
+                
+            @foreach ($tareas as $item)
+                    <tr>
+                        <td><b>{{$item->tarNombre}}</b></td>
+                        <td>{{$item->tarDescripcion}}</td>
+                        {{-- <td>{{$item->tarArea}}</td> --}}
+                        <td>{{$item->tarEstado}}</td>
+                        <td>{{$item->tarEmpleado}}</td>
+                        @if (($item->tarEstado) == 'Asignada')
+                            <td>
+                                <a  class="btn btn-success btn-sm text-white">¡Ya ah sido Asignada!</a>
+                            </td>
+                        @else
+                        <td>
+                            <a href="/edit/asignar-tarea/{{$item->tarCodigo}}" class="btn btn-success btn-sm text-white">Asignar</a>
+                        </td>
+                        @endif
+                        
+                    </tr>
+                    {{-- @if ($item->tarEstado == 'Creada')
+                    
+                    @endif --}}
+                @endforeach
+
+            @endif
+
+            
         
         </tbody>
     </table>
@@ -43,3 +83,4 @@
     
 
 @endsection
+
