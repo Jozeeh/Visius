@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
     
+	
 <div class="container">
     
     <center>
@@ -63,7 +64,8 @@
                             </td>
                         @elseif(($item->tarEstado) == 'Revision')
                             <td>
-                                <a href="" class="btn btn-success btn-sm text-white" onclick="revision(this)">En solicitud de revision</a>
+                                <button class="btn btn-success btn-sm text-white" onclick="revision(this)">En solicitud de revision</button>
+                                
                             </td>
                         @else
                         <td>
@@ -89,6 +91,15 @@
 @endsection
 
 @section('js')
-    <script src="{{asset('/js/alertasTareas.js')}}"></script>
+    {{-- <script src="{{asset('/js/alertasTareas.js')}}"></script> --}}
+    <script>
+        revision = function(){
+    
+        
+    alert('holaMundo');
+        
+    
+}
+    </script>
 @endsection
 

@@ -12,6 +12,8 @@
 
 	{{-- sweetalert --}}
 	<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 	
 
 	{{-- icono de pestaña --}}
@@ -285,34 +287,17 @@
 	</section>
 
 	<!-- Dialog help -->
-	<div class="modal fade" tabindex="-1" role="dialog" id="Dialog-Help">
-	  	<div class="modal-dialog" role="document">
-		    <div class="modal-content">
-			    <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			    	<h4 class="modal-title">Help</h4>
-			    </div>
-			    <div class="modal-body">
-			        <p>
-			        	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt beatae esse velit ipsa sunt incidunt aut voluptas, nihil reiciendis maiores eaque hic vitae saepe voluptatibus. Ratione veritatis a unde autem!
-			        </p>
-			    </div>
-		      	<div class="modal-footer">
-		        	<button type="button" class="btn btn-primary btn-raised" data-dismiss="modal"><i class="zmdi zmdi-thumb-up"></i> Ok</button>
-		      	</div>
-		    </div>
-	  	</div>
-	</div>
+	
 
 	<!--====== Scripts -->
-	<script src="{{asset('/js/jquery-3.1.1.min.js')}}"></script>
+{{-- <script src="{{asset('/js/jquery-3.1.1.min.js')}}"></script> --}}
 	{{-- <script src="{{asset('/js/sweetalert2.min.js')}}"></script> --}}
 	{{-- <script src="{{asset('/js/bootstrap.min.js')}}"></script> --}}
 	<script src="{{asset('/js/material.min.js')}}"></script>
 	<script src="{{asset('/js/ripples.min.js')}}"></script>
 	<script src="{{asset('/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 	<script src="{{asset('/js/main.js')}}"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+	
 	<script>
 		$.material.init();
 	</script>
