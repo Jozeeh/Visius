@@ -191,9 +191,6 @@
 						<a class="nav-link" href="/tareas/show">Tareas asignadas</a>
 					</li>
 					
-					<li class="nav-item active">
-						<a class="nav-link" href="/reportesPDF/reportesTareas">Reporte de tareas</a>
-					</li>
 
 					<li class="nav-item active">
 						<a class="nav-link" href="/tareas/estadoTareas">Estado de tareas</a>
