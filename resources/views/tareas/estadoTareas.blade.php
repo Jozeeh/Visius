@@ -1,4 +1,8 @@
 @extends('layouts.app')
+
+<!--Definiendo titulos-->
+@section('title', 'Tareas Finalizadas')
+
 @section('content')
     
 	

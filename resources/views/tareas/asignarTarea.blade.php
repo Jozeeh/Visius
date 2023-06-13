@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+<!--Definiendo titulos-->
+@section('title', 'Asignar Tarea a empleado')
+
 @section('content')
     <div class="container">
 

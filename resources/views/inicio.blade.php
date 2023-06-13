@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+<!--Definiendo titulos-->
+@section('title', 'Welcome')
+
 @section('css')
     
 @endsection

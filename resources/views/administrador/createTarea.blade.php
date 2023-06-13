@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+<!--Definiendo titulos-->
+@section('title', 'Crear Tarea')
+
 @section('content')
     <center>
         <img src="{{ asset('/css/img/logo_transparent.png') }}" alt="Logo" width="250px" class="img-fluid mt-4"><br>

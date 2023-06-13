@@ -1,4 +1,8 @@
 @extends('layouts.app')
+
+<!--Definiendo titulos-->
+@section('title', 'Mostrar tareas')
+
 @section('content')
     
 	

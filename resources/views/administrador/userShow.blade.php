@@ -18,7 +18,7 @@
         <hr>
         {{--Boton para ir a formulario de agregar empleados--}}
         <a class="btn btn-success text-white" href="/register">Registrar nuevo usuario</a>
-        <table class="table table-hover table-bordered mt-2" id="">
+        <table class="table table-hover table-bordered mt-2 table table-dark" id="">
             <thead>
             <tr>
                 <td>Codigo</td>
@@ -34,15 +34,15 @@
             {{-- Usuarios registrados --}}
             @foreach ($usuarios as $item)
                 @if (Auth::user()->userRol == 1)
-                <tr>
+                <tr class="table-secondary">
                     <td>{{$item->id}}</td>
                     <td>{{$item->name}}</td>
                     <td>{{$item->email}}</td>
                     
                     <td>{{$item->rolNombre}}</td>
                     <td>
-                        <a href="/usuarios/edit/{{$item->id}}" class="btn btn-success btn-sm">Modificar</a>
-                        <button class="btn btn-danger btn-sm" url="/usuarios/destroy/{{$item->id}}" onclick="destroy(this)" token="{{csrf_token()}}">Eliminar</button>
+                        <a href="/usuarios/edit/{{$item->id}}" class="btn btn-success btn-sm text-white">Modificar</a>
+                        <button class="btn btn-danger btn-sm text-white" url="/usuarios/destroy/{{$item->id}}" onclick="destroy(this)" token="{{csrf_token()}}">Eliminar</button>
                     </td>
                 </tr> 
                 @else

@@ -1,5 +1,8 @@
 @extends('app')
 
+<!--Definiendo titulos-->
+@section('title', 'Registro usuario')
+
 @section('content')
     
 <!DOCTYPE html>

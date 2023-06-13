@@ -1,4 +1,7 @@
 @extends('layouts.app')
+
+<!--Definiendo titulos-->
+@section('title', 'Modificar usuario')
 @section('content')
     
 <div class="container">
