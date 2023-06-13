@@ -23,10 +23,7 @@
 </head>
 <body>
 
-    <audio autoplay loop>
-        <source src="{{ asset('mp3/login.mp3') }}" type="audio/mpeg">
-        Tu navegador no soporta la reproducción de audio.
-      </audio>
+    
 
     <style>
         body{
