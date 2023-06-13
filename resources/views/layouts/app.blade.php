@@ -152,6 +152,10 @@
 					</li>
 
 					<li class="nav-item active">
+						<a class="nav-link" href="/gestion-usuarios">Gestión de usuarios</a>
+					</li>
+
+					<li class="nav-item active">
 						<a class="nav-link" href="/CreateTareas">Creación de tareas</a>
 					</li>
 

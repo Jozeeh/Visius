@@ -30,8 +30,10 @@
             </tr>
         </thead>
         <tbody>
+
             {{-- Usuarios registrados --}}
             @foreach ($usuarios as $item)
+                @if (Auth::user()->userRol == 1)
                 <tr>
                     <td>{{$item->id}}</td>
                     <td>{{$item->name}}</td>
@@ -42,7 +44,23 @@
                         <a href="/usuarios/edit/{{$item->id}}" class="btn btn-success btn-sm">Modificar</a>
                         <button class="btn btn-danger btn-sm" url="/usuarios/destroy/{{$item->id}}" onclick="destroy(this)" token="{{csrf_token()}}">Eliminar</button>
                     </td>
-                </tr>
+                </tr> 
+                @else
+                    @if ($item->rolNombre == 'Empleado')
+                    <tr>
+                        <td>{{$item->id}}</td>
+                        <td>{{$item->name}}</td>
+                        <td>{{$item->email}}</td>
+                        
+                        <td>{{$item->rolNombre}}</td>
+                        <td>
+                            <a href="/usuarios/edit/{{$item->id}}" class="btn btn-success btn-sm">Modificar</a>
+                            <button class="btn btn-danger btn-sm" url="/usuarios/destroy/{{$item->id}}" onclick="destroy(this)" token="{{csrf_token()}}">Eliminar</button>
+                        </td>
+                    </tr>
+                    @endif
+                @endif
+                
             @endforeach
         </tbody>
         </table>

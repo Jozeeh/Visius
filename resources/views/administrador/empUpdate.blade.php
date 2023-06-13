@@ -47,13 +47,25 @@
             <div class="col-6 mt-4">
                 <b>Asignar supervisor:</b>
                 <select name="empSupervisor" class="form-control text-center">
-                    @foreach ($supervisores as $item)
-                        <option value="{{$item->supCodigo}}">{{$item->name}}</option>
-                    @endforeach
+                    @if (Auth::user()->userRol == 1)
+                        @foreach ($supervisores as $item)
+                            <option value="{{$item->supCodigo}}">{{$item->name}}</option>
+                        @endforeach
+                    @else
+                        @foreach ($supervisores as $item)
+                            
+                            @if (Auth::user()->name == $item->name)
+                                <option value="{{$item->supCodigo}}">{{$item->name}}</option>
+                            @endif
+                            
+                        @endforeach
+                    @endif
+
+                   
                 </select>
             </div>
 
-            <button class="btn btn-warning text-dark">Asignar área</button>
+            <button class="btn btn-warning text-dark">Asignar área y Supervisor</button>
 
         </form>
         </center>

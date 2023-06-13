@@ -39,6 +39,7 @@
             <div class="col-6 mt-4">
                 <b>Empleado para asignar:</b>
                 <select name="tarEmpleado" class="form-control text-center">
+                    
                     @foreach ($empleados as $empleado)
                         @foreach ($users as $user)
                             @if ($empleado->empUser === $user->id)
