@@ -119,22 +119,5 @@ Route::post('/reporte-tareasEmpleados', [ReportesPdfController::class, 'reporteT
 // [REPORTE DE TAREAS SEGUN EL ÁREA]
 Route::post('/reportes-tareasArea', [ReportesPdfController::class, 'reporteEstadoTareasArea']);
 
-// [ SUPERVISORES-PDF ]
-    //(Todos los supervisores)
-Route::get('/reporte-supervisores', [ReportesPdfController::class, 'reporteSupervisoresMostrar']);
-Route::get('/reporte-supervisoresDescargar', [ReportesPdfController::class, 'reporteSupervisoresDescargar']);
 
-// [ administradores-PDF ]
-    //(Todos los administradores)
-Route::get('/reporte-administradores', [ReportesPdfController::class, 'reporteAdministradoresMostrar']);
-Route::get('/reporte-administradoresDescargar', [ReportesPdfController::class, 'reporteAdministradoresDescargar']);
-
-Route::get('/reporte-tareas', [ReportesPdfController::class, 'reporteTareasMostrar']);
-Route::get('/reporte-tareasDescargar', [ReportesPdfController::class, 'reporteTareasDescargar']);
-
-
-// Route::get('/reportesPDF/reportesEmpleados', [EmpleadosPdfController::class, 'index'])->middleware('auth');
-Route::get('/reportesPDF/reportesSupervisores', [SupervisorController::class, 'index'])->middleware('auth');
-Route::get('/reportesPDF/reportesAdministradores', [AdministradoresController::class, 'index'])->middleware('auth');
-Route::get('/reportesPDF/reportesTareas', [TareasPdfController::class, 'index'])->middleware('auth');
 

@@ -29,6 +29,16 @@ class AreasSeeder extends Seeder
                 'arNombre'=>'Soporte Ténico',
                 'created_at'=>Carbon::now()
             ]
+            ,
+            [
+                'arNombre'=>'Marketing',
+                'created_at'=>Carbon::now()
+            ],
+            [
+                'arNombre'=>'Desarrollo de Software',
+                'created_at'=>Carbon::now()
+            ]
+            
         ];
         DB::table('areas')->insert($datos);
     }

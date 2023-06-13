@@ -39,6 +39,8 @@
 	 </style>
 </head>
 <body>
+
+	<audio src="micancion.mp3" autoplay="autoplay" loop="loop"></audio>
 	<!-- SideBar -->
 	<div id="app">
 	<section class="full-box cover dashboard-sideBar">
