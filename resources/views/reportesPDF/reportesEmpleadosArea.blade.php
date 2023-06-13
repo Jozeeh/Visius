@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reporte de empledos por área</title>
+    <title>Reporte de empledos por área de trabajo</title>
 
     <style>
         body {
@@ -37,7 +37,7 @@
         <div class="col-6" align="right">
             <h4>
                 <b>Visius, El Salvador</b><br>
-                <b>Todos los derechos reservador</b> 
+                <b>Todos los derechos reservados</b> 
             </h4>
         </div>
     </div>
@@ -46,7 +46,6 @@
     <h2>Empleados</h2>
     <hr> <br>
     {{-- Nombre: {{$nombre}} --}}
-
     <h3>Reporte por área de trabajo</h3>
     <p align="justify">
         Que tenga un muy buen día, por medio del presente documento se reporta los datos de los empleados registrados 

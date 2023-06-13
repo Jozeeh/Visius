@@ -105,6 +105,8 @@ Route::post('/reporte-empleadosArea', [ReportesPdfController::class, 'reporteEmp
 
 // [REPORTE DE TAREAS SEGÚN EMPLEADO]
 Route::post('/reporte-tareasEmpleados', [ReportesPdfController::class, 'reporteTareasEmpleados']);
+// [REPORTE DE TAREAS SEGUN EL ÁREA]
+Route::post('/reportes-tareasArea', [ReportesPdfController::class, 'reporteEstadoTareasArea']);
 
 // [ SUPERVISORES-PDF ]
     //(Todos los supervisores)
