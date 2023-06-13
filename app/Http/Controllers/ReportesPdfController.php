@@ -16,8 +16,70 @@ class ReportesPdfController extends Controller
         
         //obtenemos valores de la tabla áreas
         $areas = Areas::all();
+
+        //obtenemos valores de la tabla tareas
+        $tareasPorEmpleados = Empleados::select(
+            'empleados.empCodigo', 
+            'empleados.empUser', 
+            'users.name as empName'
+        )
+        ->leftJoin('users', 'empleados.empUser', '=', 'users.id')
+        ->get();
         
-        return view('/reportesPDF/reportes', ['areas'=>$areas]);
+        return view('/reportesPDF/reportes', ['areas'=>$areas, 'tareasPorEmpleados'=>$tareasPorEmpleados]);
+    }
+
+
+    //Metodo para descargar reporte de todos los empleados
+    public function reporteEmpleadosDescargar(){
+        //Obtenemos datos de empleados registrados
+        $empleados = Empleados::select(
+            'empleados.empCodigo',
+            'users.name AS empName',
+            'users.email AS empEmail',
+            'areas.arNombre AS empArea',
+            'users.id AS empUser',
+            'supervisores.supUser AS empSupervisor'
+        )
+        ->join('users', 'empleados.empUser', '=', 'users.id')
+        ->leftJoin('areas', 'empleados.empArea', '=', 'areas.arCodigo')
+        ->leftJoin('supervisores', 'empleados.empSupervisor', '=', 'supervisores.supCodigo')
+        ->where(function ($query) {
+            $query->whereNull('areas.arNombre')
+                ->orWhere('areas.arNombre', '<>', '');
+        })
+        ->get();
+        
+        $pdf = Pdf::loadView('/reportesPDF/reporteTodosEmpleados', compact('empleados'));
+        
+        return $pdf->download('todos-empleados.pdf');
+    }
+
+
+     //Metodo para mostrar reporte de todos los empleados
+    public function reporteEmpleadosMostrar(){
+        
+        //Obtenemos datos de empleados registrados
+        $empleados = Empleados::select(
+            'empleados.empCodigo',
+            'users.name AS empName',
+            'users.email AS empEmail',
+            'areas.arNombre AS empArea',
+            'users.id AS empUser',
+            'supervisores.supUser AS empSupervisor'
+        )
+        ->join('users', 'empleados.empUser', '=', 'users.id')
+        ->leftJoin('areas', 'empleados.empArea', '=', 'areas.arCodigo')
+        ->leftJoin('supervisores', 'empleados.empSupervisor', '=', 'supervisores.supCodigo')
+        ->where(function ($query) {
+            $query->whereNull('areas.arNombre')
+                ->orWhere('areas.arNombre', '<>', '');
+        })
+        ->get();
+
+        $pdf = Pdf::loadView('/reportesPDF/reporteTodosEmpleados', compact('empleados'));
+        
+        return $pdf->stream('todos-empleados.pdf');
     }
 
     public function reporteEmpleadosArea(Request $request){
@@ -48,56 +110,29 @@ class ReportesPdfController extends Controller
 
     }
 
-     //Metodo para mostrar reporte de todos los empleados
-    public function reporteEmpleadosMostrar(){
+    public function reporteTareasEmpleados(Request $request){
+
+        //Guardamos ID obtenido del empleado para mostrar las tareas que le pertenecen
+        $idTareasEmpleados = $request->input('selectTareasEmpleados');
         
-        //Obtenemos datos de empleados registrados
-        $empleados = Empleados::select(
-            'empleados.empCodigo',
-            'users.name AS empName',
-            'users.email AS empEmail',
-            'areas.arNombre AS empArea',
-            'users.id AS empUser',
-            'supervisores.supUser AS empSupervisor'
+        $tareasEmpleados = Tareas::select(
+            'tareas.tarCodigo', 
+            'tareas.tarNombre', 
+            'tareas.tarDescripcion', 
+            'tareas.tarEstado', 
+            'empleados.empUser as tarEmpleado', 
+            'users.name as tarNombreEmpleado'
         )
-        ->join('users', 'empleados.empUser', '=', 'users.id')
-        ->leftJoin('areas', 'empleados.empArea', '=', 'areas.arCodigo')
-        ->leftJoin('supervisores', 'empleados.empSupervisor', '=', 'supervisores.supCodigo')
-        ->where(function ($query) {
-            $query->whereNull('areas.arNombre')
-                ->orWhere('areas.arNombre', '<>', '');
-        })
+        ->leftJoin('empleados', 'tareas.tarEmpleado', '=', 'empleados.empCodigo')
+        ->leftJoin('users', 'empleados.empUser', '=', 'users.id')
+        ->where('tareas.tarEmpleado', '=', $idTareasEmpleados)
         ->get();
 
-        $pdf = Pdf::loadView('/reportesPDF/reporteTodosEmpleados', compact('empleados'));
-        
-        return $pdf->stream('todos-empleados.pdf');
+        $pdf = Pdf::loadView('/reportesPDF/reportesTareasEmpleados', compact('tareasEmpleados'));
+        return $pdf->stream('reporte-tareas-empleados');
+
     }
 
-    //Metodo para descargar reporte de todos los empleados
-    public function reporteEmpleadosDescargar(){
-        //Obtenemos datos de empleados registrados
-        $empleados = Empleados::select(
-            'empleados.empCodigo',
-            'users.name AS empName',
-            'users.email AS empEmail',
-            'areas.arNombre AS empArea',
-            'users.id AS empUser',
-            'supervisores.supUser AS empSupervisor'
-        )
-        ->join('users', 'empleados.empUser', '=', 'users.id')
-        ->leftJoin('areas', 'empleados.empArea', '=', 'areas.arCodigo')
-        ->leftJoin('supervisores', 'empleados.empSupervisor', '=', 'supervisores.supCodigo')
-        ->where(function ($query) {
-            $query->whereNull('areas.arNombre')
-                ->orWhere('areas.arNombre', '<>', '');
-        })
-        ->get();
-        
-        $pdf = Pdf::loadView('/reportesPDF/reporteTodosEmpleados', compact('empleados'));
-        
-        return $pdf->download('todos-empleados.pdf');
-    }
 
     //Metodo para mostrar reporte de todos los supervisores
     public function reporteSupervisoresMostrar(){

@@ -93,15 +93,18 @@ Route::put('/update/asignar-tarea/{selTarea}', [TareasController::class, 'update
 //          REPORTES PDF            //
 //////////////////////////////////////
 
-// [ EMPLEADOS-PDF ]
-    // [VISTA REPORTES]
+// [VISTA REPORTES]
 Route::get('/reportes', [ReportesPdfController::class, 'index']);
 
+// [ EMPLEADOS-PDF ]
     // [Generar reportes todos los empleados <Generar y descargar>]
 Route::get('/reporte-empleadosTodos', [ReportesPdfController::class, 'reporteEmpleadosMostrar']);
 Route::get('/reporte-empleadosDescargar', [ReportesPdfController::class, 'reporteEmpleadosDescargar']);
     // [Generar reportes de los empleados según el área]
 Route::post('/reporte-empleadosArea', [ReportesPdfController::class, 'reporteEmpleadosArea']);
+
+// [REPORTE DE TAREAS SEGÚN EMPLEADO]
+Route::post('/reporte-tareasEmpleados', [ReportesPdfController::class, 'reporteTareasEmpleados']);
 
 // [ SUPERVISORES-PDF ]
     //(Todos los supervisores)

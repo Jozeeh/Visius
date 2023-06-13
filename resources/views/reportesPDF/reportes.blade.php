@@ -91,13 +91,15 @@
               <p class="card-text">Click en el botón para mostrar o descargar el reporte.</p>
               <div class="dropdown mt-4">
                 {{--Boton reporte PDF--}}
-                <button class="btn btn btn-success dropdown-toggle text-white" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  Reporte PDF empleados
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item text-white" href="/reporte-empleadosTodos">Mostrar | Todos los empleados</a></li>
-                  <li><a class="dropdown-item text-white" href="/reporte-empleadosDescargar">Descargar | Todos los empleados</a></li>
-                </ul>
+                <form action="/reporte-tareasEmpleados" method="post">
+                  @csrf
+                  <select name="selectTareasEmpleados" class="form-select">
+                    @foreach ($tareasPorEmpleados as $item)
+                      <option value="{{$item->empCodigo}}">{{$item->empName}}</option>
+                    @endforeach
+                  </select>
+                  <button class="btn btn-success text-white" type="submit">Generar Reporte</button>
+                </form>
               </div>
             </div>
           </div>
