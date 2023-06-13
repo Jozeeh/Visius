@@ -41,6 +41,13 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('in
     // [VISTA DE USUARIOS REGISTRADOS]
 Route::get('/gestion-usuarios', [UsuariosController::class, 'index']);
 
+    // [VISTA PARA EDITAR USUARIOS]
+Route::get('/usuarios/edit/{user}', [UsuariosController::class, 'edit']);
+
+Route::put('/usuarios/update/{user}', [UsuariosController::class, 'update']);
+
+Route::delete('/usuarios/destroy/{id}', [UsuariosController::class, 'destroy']);
+
 /////////////////////////////
 //       EMPLEADOS         //
 /////////////////////////////

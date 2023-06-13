@@ -91,15 +91,8 @@
 @endsection
 
 @section('js')
-    {{-- <script src="{{asset('/js/alertasTareas.js')}}"></script> --}}
-    <script>
-        revision = function(){
-    
-        
-    alert('holaMundo');
-        
-    
-}
+    <script src="{{asset('/js/alertasTareas.js')}}"></script>
+   
     </script>
 @endsection
 

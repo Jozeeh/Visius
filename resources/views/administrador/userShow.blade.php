@@ -39,8 +39,8 @@
                     
                     <td>{{$item->rolNombre}}</td>
                     <td>
-                        <a href="/products/edit/{{$item->codigo}}" class="btn btn-success btn-sm">Modificar</a>
-                        <button class="btn btn-danger btn-sm" url="/products/destroy/{{$item->codigo}}" onclick="destroy(this)" token="{{csrf_token()}}">Eliminar</button>
+                        <a href="/usuarios/edit/{{$item->id}}" class="btn btn-success btn-sm">Modificar</a>
+                        <button class="btn btn-danger btn-sm" url="/usuarios/destroy/{{$item->id}}" onclick="destroy(this)" token="{{csrf_token()}}">Eliminar</button>
                     </td>
                 </tr>
             @endforeach
@@ -49,7 +49,8 @@
     </div>
 @endsection
 
-@section('scripts')
+@section('js')
+    <script src="{{asset('js/userShow.js')}}"></script>
     {{-- SweetAlert--}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
@@ -57,11 +58,5 @@
     <script src="{{asset('js/_____.js')}}"></script>--}}
     Datatable
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-    {{-- <script>
-        $(document).ready(function () {
-            $('#_______').DataTable();
-            });
-    </script> --}}
+
 @endsection

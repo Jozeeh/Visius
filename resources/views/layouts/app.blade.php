@@ -23,7 +23,10 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+	
+
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	
 	<link rel="stylesheet" href="{{asset('css/main.css')}}">
 
 	 <!-- Scripts -->
@@ -169,7 +172,7 @@
 					</li>
 
 					<li class="nav-item active">
-						<a class="nav-link" href="/reports">Reportes</a>
+						<a class="nav-link" href="/reportes">Reportes</a>
 					</li>
 				@endif
 				{{-- Si no es administrador o supervisor será empleado --}}
@@ -293,6 +296,7 @@
 {{-- <script src="{{asset('/js/jquery-3.1.1.min.js')}}"></script> --}}
 	{{-- <script src="{{asset('/js/sweetalert2.min.js')}}"></script> --}}
 	{{-- <script src="{{asset('/js/bootstrap.min.js')}}"></script> --}}
+
 	<script src="{{asset('/js/material.min.js')}}"></script>
 	<script src="{{asset('/js/ripples.min.js')}}"></script>
 	<script src="{{asset('/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>

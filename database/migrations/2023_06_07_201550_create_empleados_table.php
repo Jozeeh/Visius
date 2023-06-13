@@ -22,7 +22,7 @@ return new class extends Migration
             //Llave foranea
             $table->bigInteger('empUser')->unsigned()->nullable();
             //Estableciendo llave foranea con tabla usuarios
-            $table->foreign('empUser')->references('id')->on('users');
+            $table->foreign('empUser')->references('id')->on('users')->onDelete('cascade');
             //Llave foranea
             $table->bigInteger('empSupervisor')->unsigned()->nullable();
             //Estableciendo llave foranea con tabla supervisores

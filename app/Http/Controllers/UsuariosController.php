@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Areas;
+use App\Models\Empleados;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class UsuariosController extends Controller
 {
@@ -63,9 +66,28 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $area = Areas::all();
+        $empleados = Empleados::select(
+            'empleados.empCodigo',
+            'empleados.empArea as area',
+            'users.name AS empName',
+            'users.email AS empEmail',
+            'areas.arNombre AS empArea',
+            'users.id AS empUser',
+            'supervisores.supUser AS empSupervisor'
+        )
+        ->join('users', 'empleados.empUser', '=', 'users.id')
+        ->leftJoin('areas', 'empleados.empArea', '=', 'areas.arCodigo')
+        ->leftJoin('supervisores', 'empleados.empSupervisor', '=', 'supervisores.supCodigo')
+        ->where(function ($query) {
+            $query->whereNull('areas.arNombre')
+                ->orWhere('areas.arNombre', '<>', '');
+        })
+        ->get();
+        return view('gestion_usuarios/updateUser')->with(['user'=>$user, 'area'=>$area, 'empleados'=>$empleados]);
+
     }
 
     /**
@@ -75,9 +97,28 @@ class UsuariosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+         //validar campos
+
+         $data = request()->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'password'=>'required'
+        ]);
+
+        //remplazar datos anteriores por los nuevos
+        $user->name = $data['name'];
+        $user->email = $data['email'];
+        $user->password = Hash::make($data['password']);
+        $user->updated_at = now();
+
+        //Enviar a guardar la actualizacion
+
+        $user->save();
+
+        //redireciona
+        return redirect('/gestion-usuarios');
     }
 
     /**
@@ -88,6 +129,10 @@ class UsuariosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //Eliminar el producto con el id recinido
+        User::destroy($id);
+
+        //retorna una respuesta json
+        return response()->json(array('res'=>true));
     }
 }

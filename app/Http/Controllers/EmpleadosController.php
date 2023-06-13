@@ -107,11 +107,13 @@ class EmpleadosController extends Controller
     {
         //Validamos dato ingresado de area
         $datos = request()->validate([
-            'empArea'=>'required'
+            'empArea'=>'required',
+            'empSupervisor'=>'required'
         ]);
 
         //Ingresamos el área
         $selEmpleado->empArea = $datos['empArea'];
+        $selEmpleado->empSupervisor = $datos['empSupervisor'];
         $selEmpleado->updated_at = now();
 
         $selEmpleado->save();
@@ -128,6 +130,10 @@ class EmpleadosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //Eliminar el producto con el id recinido
+        Products::destroy($id);
+
+        //retorna una respuesta json
+        return response()->json(array('res'=>true));
     }
 }
