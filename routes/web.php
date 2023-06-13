@@ -83,6 +83,10 @@ Route::get('/tareas/revision/{selTarea}', [TareasController::class, 'revision'])
 
     // [VISTA MOSTRAR TAREAS]
 Route::get('/tareas/show', [TareasController::class, 'index']);
+Route::get('/tareas/estadoTareas', [TareasController::class, 'estadoTareas']);
+
+    //finalizar tarea
+Route::get('/tarea/finalizada/{selTarea}', [TareasController::class, 'finalizada']);
 
 
 

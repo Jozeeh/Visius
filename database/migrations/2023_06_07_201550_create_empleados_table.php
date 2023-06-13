@@ -26,7 +26,7 @@ return new class extends Migration
             //Llave foranea
             $table->bigInteger('empSupervisor')->unsigned()->nullable();
             //Estableciendo llave foranea con tabla supervisores
-            $table->foreign('empSupervisor')->references('supCodigo')->on('supervisores');
+            $table->foreign('empSupervisor')->references('supCodigo')->on('supervisores')->onDelete('cascade');
             $table->timestamps();
         });
     }

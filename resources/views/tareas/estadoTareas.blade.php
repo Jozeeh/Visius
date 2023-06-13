@@ -18,7 +18,6 @@
                 <td>Descipción</td>
                 <td>Estado</td>
                 <td>Empleado</td>
-                <td>Asignar</td>
             </tr>
         </thead>
         <tbody class="table-secondary">
@@ -27,16 +26,14 @@
 
             @foreach ($tareas as $item)
                 @if ($item->tarEmpleado == Auth::user()->name)
-                    @if ($item->tarEstado != 'Revision' && $item->tarEstado != 'Finalizada')
+                    @if ($item->tarEstado == 'Revision' || $item->tarEstado == 'Finalizada')
                         <tr>
                             <td><b>{{$item->tarNombre}}</b></td>
                             <td>{{$item->tarDescripcion}}</td>
                             {{-- <td>{{$item->tarArea}}</td> --}}
                             <td>{{$item->tarEstado}}</td>
                             <td>{{$item->tarEmpleado}}</td>
-                            <td>
-                                <a href="/tareas/revision/{{$item->tarCodigo}}" class="btn btn-success btn-sm text-white">Finalizar</a>
-                            </td>
+            
                             
                             
                         </tr>
@@ -54,30 +51,13 @@
             @else
                 
             @foreach ($tareas as $item)
+                    
                     <tr>
                         <td><b>{{$item->tarNombre}}</b></td>
                         <td>{{$item->tarDescripcion}}</td>
                         {{-- <td>{{$item->tarArea}}</td> --}}
                         <td>{{$item->tarEstado}}</td>
                         <td>{{$item->tarEmpleado}}</td>
-                        @if (($item->tarEstado) == 'Asignada')
-                            <td>
-                                <a  class="btn btn-success btn-sm text-white">¡Ya ah sido Asignada!</a>
-                            </td>
-                        @elseif (($item->tarEstado) == 'Finalizada')
-                            <td>
-                                <a  class="btn btn-success btn-sm text-white">¡Ya ah sido finalizada!</a>
-                            </td>
-                        @elseif(($item->tarEstado) == 'Revision')
-                            <td>
-                                <button class="btn btn-success btn-sm text-white" onclick="revision(this)" url="/tarea/finalizada/{{$item->tarCodigo}}">En solicitud de revision</button>
-                                
-                            </td>
-                        @else
-                        <td>
-                            <a href="/edit/asignar-tarea/{{$item->tarCodigo}}" class="btn btn-success btn-sm text-white">Asignar</a>
-                        </td>
-                        @endif
                         
                     </tr>
                     {{-- @if ($item->tarEstado == 'Creada')

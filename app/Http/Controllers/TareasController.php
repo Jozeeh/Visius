@@ -40,6 +40,29 @@ class TareasController extends Controller
         
     }
 
+    public function estadoTareas()
+    {
+
+        $tareas = Tareas::select(
+            'tareas.tarCodigo',
+            'tareas.tarNombre',
+            'tareas.tarDescripcion',
+            'tareas.tarEstado',
+            'empleados.empUser as tarIdUserEmpleado',
+            'users.name as tarEmpleado',
+        )
+        ->leftJoin('empleados', 'tareas.tarEmpleado', '=', 'empleados.empCodigo')
+        ->leftJoin('users', 'empleados.empUser', '=', 'users.id')
+        ->where(function($query) {
+            $query->whereNull('tarEmpleado')
+                ->orWhere('tarEmpleado', '<>', '');
+        })
+        ->get();
+        
+        return view('/tareas/estadoTareas', ['tareas'=>$tareas]);
+        
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -143,6 +166,18 @@ class TareasController extends Controller
     public function revision(Tareas $selTarea){
         
         $selTarea->tarEstado = 'Revision';
+
+        $selTarea->save();
+        return redirect('/tareas/show');
+    }
+
+    // funion para indicar que la tarea va a revision
+    public function finalizada(Tareas $selTarea){
+        
+        //Reemplazamos datos por nuevos
+        $selTarea->tarEstado = 'Finalizada';
+        
+        $selTarea->tarFechaFinalizada = Carbon::now();
 
         $selTarea->save();
         return redirect('/tareas/show');

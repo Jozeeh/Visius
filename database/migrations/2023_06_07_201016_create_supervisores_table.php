@@ -23,7 +23,7 @@ return new class extends Migration
             //Llave foranea
             $table->bigInteger('supUser')->unsigned();
             //Estableciendo llave foranea con tabla de usuarios
-            $table->foreign('supUser')->references('id')->on('users');
+            $table->foreign('supUser')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

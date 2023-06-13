@@ -132,6 +132,9 @@
 					<li class="nav-item active">
 						<a class="nav-link" href="/tareas/show">Estado de tareas</a>
 					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="/tareas/estadoTareas">Tareas Finalizadas</a>
+					</li>
 
 					<li class="nav-item active">
 						<a class="nav-link" href="/reportes">Reportes</a>
@@ -166,6 +169,9 @@
 					<li class="nav-item active">
 						<a class="nav-link" href="/tareas/show">Estado de tareas</a>
 					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="/tareas/estadoTareas">Tareas Finalizadas</a>
+					</li>
 
 					<li>
 						@if (Route::has('register'))
@@ -190,7 +196,7 @@
 					</li>
 
 					<li class="nav-item active">
-						<a class="nav-link" href="/">Estado de tareas</a>
+						<a class="nav-link" href="/tareas/estadoTareas">Estado de tareas</a>
 					</li>
 				@endif
 
