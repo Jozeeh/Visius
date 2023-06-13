@@ -25,7 +25,7 @@
                 <td>Correo electronico</td>
                 <td>Área asignada</td>
                 <td>Código Usuario</td>
-                {{-- <td>Supervisor asignado</td> --}}
+                <td>Supervisor asignado</td>
                 <td>Gestionar</td>
             </tr>
         </thead>
@@ -38,10 +38,14 @@
                     <td>{{$item->empEmail}}</td>
                     <td>{{$item->empArea}}</td>
                     <td>{{$item->empUser}}</td>
-                    {{-- <td>{{$item->empSupervisor}}</td> --}}
-                    @if (($item->empArea != null))
+                    <td>{{$item->empSupervisor}}</td>
+                    @if (($item->empArea != null && $item->empSupervisor != null))
                     <td>
                         <a class="btn btn-success btn-sm text-white">Area ya asignada</a>
+                    </td>
+                    @elseif($item->supUser == null )
+                    <td>
+                        <a href="/edit/asignar-area/{{$item->empCodigo}}" class="btn btn-success btn-sm text-white">Asignar area</a>
                     </td>
                     @else
                     <td>

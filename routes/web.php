@@ -28,7 +28,7 @@ use App\Http\Controllers\AdministradoresController;
 //Vista pantalla de inicio
 Route::get('/home', function () {
     return view('inicio');
-});
+})->middleware('auth');
 
 //Rutas para loging
 Auth::routes();

@@ -12,6 +12,11 @@ use App\Http\Controllers\Controller;
 
 class ReportesPdfController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
         
         //obtenemos valores de la tabla áreas

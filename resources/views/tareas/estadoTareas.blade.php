@@ -51,7 +51,7 @@
             @else
                 
             @foreach ($tareas as $item)
-                    
+                @if($item->tarEstado == 'Finalizada')
                     <tr>
                         <td><b>{{$item->tarNombre}}</b></td>
                         <td>{{$item->tarDescripcion}}</td>
@@ -60,10 +60,10 @@
                         <td>{{$item->tarEmpleado}}</td>
                         
                     </tr>
-                    {{-- @if ($item->tarEstado == 'Creada')
+                    {{-- {{-- @if ($item->tarEstado == 'Creada') --}}
                     
-                    @endif --}}
-                @endforeach
+                @endif
+            @endforeach
 
             @endif
 

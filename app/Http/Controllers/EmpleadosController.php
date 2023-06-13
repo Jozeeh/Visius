@@ -130,10 +130,6 @@ class EmpleadosController extends Controller
      */
     public function destroy($id)
     {
-        //Eliminar el producto con el id recinido
-        Products::destroy($id);
-
-        //retorna una respuesta json
-        return response()->json(array('res'=>true));
+        
     }
 }
