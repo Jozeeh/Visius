@@ -52,12 +52,12 @@
       <div class="card h-100">
         <div class="row">
           <div class="col d-flex align-items-center justify-content-center">
-            <img src="{{ asset('/css/img/empleados.png')}}" class="card-img img-fuid" style="width: 60%;">
+            <img src="{{ asset('/css/img/empleados-area.png')}}" class="card-img img-fuid" style="width: 60%;">
           </div>
           <div class="col">
             <div class="card-body">
-              <h5 class="card-title">Generar reporte TODOS los empleados</h5>
-              <p class="card-text">Click en el botón para mostrar o descargar el reporte.</p>
+              <h5 class="card-title">Generar reporte de empleados según el área</h5>
+              <p class="card-text">Click en el botón para mostrar el reporte.</p>
               <div class="dropdown mt-4">
                 {{--Boton reporte PDF--}}
                 <form action="/reporte-empleadosArea" method="post">
@@ -83,12 +83,12 @@
       <div class="card h-100">
         <div class="row">
           <div class="col d-flex align-items-center justify-content-center">
-            <img src="{{ asset('/css/img/empleados.png')}}" class="card-img img-fuid" style="width: 60%;">
+            <img src="{{ asset('/css/img/tareas-empleados.png')}}" class="card-img img-fuid" style="width: 60%;">
           </div>
           <div class="col">
             <div class="card-body">
-              <h5 class="card-title">Generar reporte TODOS los empleados</h5>
-              <p class="card-text">Click en el botón para mostrar o descargar el reporte.</p>
+              <h5 class="card-title">Generar reporte de tareas según empleado.</h5>
+              <p class="card-text">Click en el botón para mostrar el reporte.</p>
               <div class="dropdown mt-4">
                 {{--Boton reporte PDF--}}
                 <form action="/reporte-tareasEmpleados" method="post">
@@ -106,6 +106,36 @@
         </div>
       </div>
     </div>
+
+    {{--Reporte tareas según el área--}}
+    <div class="col-lg-6 mt-4">
+      <div class="card h-100">
+        <div class="row">
+          <div class="col d-flex align-items-center justify-content-center">
+            <img src="{{ asset('/css/img/tareas-area.png')}}" class="card-img img-fuid" style="width: 60%;">
+          </div>
+          <div class="col">
+            <div class="card-body">
+              <h5 class="card-title">Generar reporte de tareas según el área</h5>
+              <p class="card-text">Click en el botón para mostrar el reporte.</p>
+              <div class="dropdown mt-4">
+                {{--Boton reporte PDF--}}
+                <form action="/reportes-tareasArea" method="post">
+                  @csrf
+                  <select name="selectArea" class="form-select">
+                    @foreach ($areas as $item)
+                      <option value="{{$item->arCodigo}}">{{$item->arNombre}}</option>
+                    @endforeach
+                  </select>
+                  <button class="btn btn-success text-white" type="submit">Generar Reporte</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
