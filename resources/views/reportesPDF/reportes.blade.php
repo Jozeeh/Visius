@@ -56,7 +56,7 @@
           </div>
           <div class="col">
             <div class="card-body">
-              <h5 class="card-title">Generar reporte TODOS los empleados</h5>
+              <h5 class="card-title">Generar reporte de los empleados del ÁREA DE TRABAJO que desee</h5>
               <p class="card-text">Click en el botón para mostrar o descargar el reporte.</p>
               <div class="dropdown mt-4">
                 {{--Boton reporte PDF--}}
