@@ -93,15 +93,20 @@ Route::put('/update/asignar-tarea/{selTarea}', [TareasController::class, 'update
 //          REPORTES PDF            //
 //////////////////////////////////////
 
-// [ EMPLEADOS-PDF ]
-    // [VISTA REPORTES EMPLEADOS]
-Route::get('/reportes-empleados', [ReportesPdfController::class, 'index']);
+// [VISTA REPORTES]
+Route::get('/reportes', [ReportesPdfController::class, 'index']);
 
+// [ EMPLEADOS-PDF ]
     // [Generar reportes todos los empleados <Generar y descargar>]
 Route::get('/reporte-empleadosTodos', [ReportesPdfController::class, 'reporteEmpleadosMostrar']);
 Route::get('/reporte-empleadosDescargar', [ReportesPdfController::class, 'reporteEmpleadosDescargar']);
     // [Generar reportes de los empleados según el área]
 Route::post('/reporte-empleadosArea', [ReportesPdfController::class, 'reporteEmpleadosArea']);
+
+// [REPORTE DE TAREAS SEGÚN EMPLEADO]
+Route::post('/reporte-tareasEmpleados', [ReportesPdfController::class, 'reporteTareasEmpleados']);
+// [REPORTE DE TAREAS SEGUN EL ÁREA]
+Route::post('/reportes-tareasArea', [ReportesPdfController::class, 'reporteEstadoTareasArea']);
 
 // [ SUPERVISORES-PDF ]
     //(Todos los supervisores)
@@ -122,7 +127,3 @@ Route::get('/reportesPDF/reportesSupervisores', [SupervisorController::class, 'i
 Route::get('/reportesPDF/reportesAdministradores', [AdministradoresController::class, 'index'])->middleware('auth');
 Route::get('/reportesPDF/reportesTareas', [TareasPdfController::class, 'index'])->middleware('auth');
 
-
-Route::get('/reportes', function () {
-    return view('reportesPDF/reportes');
-});

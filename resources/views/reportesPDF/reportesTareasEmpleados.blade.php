@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reporte de empledos por área de trabajo</title>
-
+    <title>Reporte de empleado por área de trabajo</title>
     <style>
         body {
             text-align: center;
@@ -43,13 +42,12 @@
     </div>
     <br>
     <hr>
-    <h2>Empleados</h2>
+    <h2>Tareas de Empleado</h2>
     <hr> <br>
-    {{-- Nombre: {{$nombre}} --}}
-    <h3>Reporte por área de trabajo</h3>
+    <h3>Reporte de tareas de empleado específico</h3>
     <p align="justify">
-        Que tenga un muy buen día, por medio del presente documento se reporta los datos de los empleados registrados 
-        en nuestra empresa, los cuales forman parte de su área de trabajo especificada en la tabla de datos. Esperamos 
+        Que tenga un muy buen día, por medio del presente documento se reporta las tareas asginadas al empleado registrado
+        en nuestra empresa, el cual forma parte de su área de trabajo especificada en la tabla de datos. Esperamos 
         que esta información pueda ser de su ayuda. Si tiene alguna inquietud no dude en contactarse con nuestro servicio 
         al cliente, será un gusto atenderle.
     </p>
@@ -60,19 +58,21 @@
     <table>
         <thead>
             <tr>
-                <td>Codigo</td>
+                <td>Codigo Tarea</td>
                 <td>Empleado</td>
-                <td>Correo</td>
-                <td>Área</td>
+                <td>Tarea</td>
+                <td>Descripción</td>
+                <td>Estado</td>
             </tr>
         </thead>
         <tbody>
-            @foreach ($empleadosArea as $item)
+            @foreach ($tareasEmpleados as $item)
                 <tr>
-                    <td>{{$item['empCodigo']}}</td>
-                    <td>{{$item['empName']}}</td>
-                    <td>{{$item['empEmail']}}</td>
-                    <td>{{$item['empNombreArea']}}</td>
+                    <td>{{$item['tarCodigo']}}</td>
+                    <td>{{$item['tarNombreEmpleado']}}</td>
+                    <td>{{$item['tarNombre']}}</td>
+                    <td>{{$item['tarDescripcion']}}</td>
+                    <td>{{$item['tarEstado']}}</td>
                 </tr>
             @endforeach
         </tbody>
